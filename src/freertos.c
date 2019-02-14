@@ -473,12 +473,21 @@ void StepMotorFunc(void const * argument)
   SetCommand(1,1,0,0,&COMMAND_SEQUENCE_FULL_BACK[2]);
   SetCommand(1,0,0,1,&COMMAND_SEQUENCE_FULL_BACK[3]);
   int n = 0;
+
+  int count_sector = 0;
   int Direction = 1;
 
   /* Infinite loop */
   for(;;)
   {
-    osDelay(3);
+    osDelay(4);
+      count_sector++;
+      
+      if(count_sector == 400)
+      {
+        count_sector = 0;
+        Direction = Direction*-1;
+      }
 
       if(Direction == 1)
       {
