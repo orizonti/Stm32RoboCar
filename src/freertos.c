@@ -72,11 +72,14 @@
 
    uint8_t Data[12];
    uint8_t Data2[12];
+   
 
 
 
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi3;
+
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -144,7 +147,17 @@ osThreadId SensorMonitorinHandle;
 osThreadId Uart_Control_TaHandle;
 osThreadId DC_Motor_ContHandle;
 osThreadId StepMotor_ConHandle;
-osMessageQId StepCommandQueueHandle;
+
+osMessageQId DCMotorCommandQueueHandle;
+osMessageQId StepMotorCommandQueueHandle;
+osMessageQId AccelCommandQueueHandle;
+
+osMessageQId DCMotorStateQueueHandle;
+osMessageQId StepMotorStateQueueHandle;
+osMessageQId AccelStateQueueHandle;
+
+osMessageQId RangersStateQueueHandle;
+osMessageQId BatteryStateQueueHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -165,7 +178,6 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-       
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -203,9 +215,32 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the queue(s) */
   /* definition and creation of StepCommandQueue */
-  osMessageQDef(StepCommandQueue, 16, uint16_t);
-  StepCommandQueueHandle = osMessageCreate(osMessageQ(StepCommandQueue), NULL);
+  //COMMAND TO MC DATA QUEUES
+  osMessageQDef(StepMotorCommandQueue, 18, uint16_t);
+  StepMotorCommandQueueHandle = osMessageCreate(osMessageQ(StepMotorCommandQueue), NULL);
 
+  osMessageQDef(DCMotorCommandQueue, 14, uint16_t);
+  DCMotorCommandQueueHandle = osMessageCreate(osMessageQ(DCMotorCommandQueue), NULL);
+
+  osMessageQDef(AccelCommandQueue, 18, uint16_t);
+  AccelCommandQueueHandle = osMessageCreate(osMessageQ(AccelCommandQueue), NULL);
+
+
+  //STATE FROM MC DATA QUEUES
+  osMessageQDef(StepMotorStateQueue, 18, uint16_t);
+  StepMotorStateQueueHandle = osMessageCreate(osMessageQ(StepMotorStateQueue), NULL);
+
+  osMessageQDef(DCMotorStateQueue, 14, uint16_t);
+  DCMotorStateQueueHandle = osMessageCreate(osMessageQ(DCMotorStateQueue), NULL);
+
+  osMessageQDef(AccelStateQueue, 18, uint16_t);
+  AccelStateQueueHandle = osMessageCreate(osMessageQ(AccelStateQueue), NULL);
+
+  osMessageQDef(RangersStateQueue, 10, uint16_t);
+  RangersStateQueueHandle = osMessageCreate(osMessageQ(RangersStateQueue), NULL);
+
+  osMessageQDef(BatteryStateQueue, 10, uint16_t);
+  BatteryStateQueueHandle = osMessageCreate(osMessageQ(BatteryStateQueue), NULL);
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -220,34 +255,20 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_SensorMonitorFunction */
 void SensorMonitorFunction(void const * argument)
 {
- Data[0] = 0x0;
-                 Data[1] = 0x1;
-                 Data[2] = 0x3;
-                 Data[3] = 0x7;
-                 Data[4] = 0xF;
-                 Data[5] = 0x1F;
-                 Data[6] = 0x3F;
-                 Data[7] = 0x7F;
-                 Data[8] = 0xFF;
-                 Data[9] = 0xFF;
-                 Data[10] = 0xFF;
-                 Data[11] = 0xFF;
+ Data2[0] = 0x0;    Data[0] = 0x0;
+ Data2[1] = 0x0;    Data[1] = 0x1;
+ Data2[2] = 0x0;    Data[2] = 0x3;
+ Data2[3] = 0x0;    Data[3] = 0x7;
+ Data2[4] = 0x0;    Data[4] = 0xF;
+ Data2[5] = 0x0;    Data[5] = 0x1F;
+ Data2[6] = 0x0;    Data[6] = 0x3F;
+ Data2[7] = 0x0;    Data[7] = 0x7F;
+ Data2[8] = 0x0;    Data[8] = 0xFF;
+ Data2[9] = 0x8;    Data[9] = 0xFF;
+ Data2[10] = 0xC;   Data[10] = 0xFF;
+ Data2[11] = 0xFF;  Data[11] = 0xFF;
 
-                 Data2[0] = 0x0;
-                 Data2[1] = 0x0;
-                 Data2[2] = 0x0;
-                 Data2[3] = 0x0;
-                 Data2[4] = 0x0;
-                 Data2[5] = 0x0;
-                 Data2[6] = 0x0;
-                 Data2[7] = 0x0;
-                 Data2[8] = 0x0;
-                 Data2[9] = 0x8;
-                 Data2[10] = 0xC;
-                 Data2[11] = 0xE;
  uint8_t Counter = 0;
-
-
   cs_reset();
   /* USER CODE BEGIN SensorMonitorFunction */
 
@@ -279,7 +300,7 @@ void SensorMonitorFunction(void const * argument)
   HAL_SPI_Transmit_IT(&hspi3, Data2 + Counter, 1);
   HAL_SPI_Transmit_IT(&hspi3, Data + Counter, 1);
   cs_strob();
-  osDelay(1000);
+  osDelay(500);
  //   osMessagePut(AccelStateQueueHandle,(uint32_t)AccelerometerData,5);
   }
  // free(AccelData);
@@ -415,7 +436,6 @@ void UARTTransferFunction(void const * argument)
   //                  MESSAGE_SIZE = 0;
   //              HAL_UART_Receive_IT(&huart1,DataRec,3);
   //            }
-  //  }
   //==========================================================================================
   /* USER CODE END UARTTransferFunction */
 }

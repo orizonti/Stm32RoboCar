@@ -7,7 +7,7 @@
   ******************************************************************************
   * This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
-  * USER CODE END. Other portions of this file, whether 
+  * USER CODE END. Other portions of this file, whether
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
@@ -22,7 +22,7 @@
   * 2. Redistributions in binary form must reproduce the above copyright notice,
   *    this list of conditions and the following disclaimer in the documentation
   *    and/or other materials provided with the distribution.
-  * 3. Neither the name of STMicroelectronics nor the names of other 
+  * 3. Neither the name of STMicroelectronics nor the names of other
   *    contributors to this software may be used to endorse or promote products 
   *    derived from this software without specific written permission.
   * 4. This software, including modifications and/or derivative works of this 
@@ -58,7 +58,6 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/

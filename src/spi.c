@@ -77,7 +77,6 @@ void MX_SPI1_Init(void)
   {
     Error_Handler();
   }
-
 }
 /* SPI3 init function */
 void MX_SPI3_Init(void)
