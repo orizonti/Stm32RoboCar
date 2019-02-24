@@ -9,8 +9,8 @@
 0	.vscode\\c_cpp_properties (2).json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 0	.vscode\\c_cpp_properties (2).json	/^                "PLATFORMIO=30603",$/;"	s	array:configurations.0.defines
 0	.vscode\\c_cpp_properties (2).json	/^        {$/;"	o	array:configurations
-0	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
-0	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_RoboCa/;"	s	array:configurations.0.includePath
+0	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM/;"	s	array:configurations.0.browse.path
+0	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 0	.vscode\\c_cpp_properties.json	/^                "PLATFORMIO=30604",$/;"	s	array:configurations.0.defines
 0	.vscode\\c_cpp_properties.json	/^        {$/;"	o	array:configurations
 0	.vscode\\compile_commands.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
@@ -26,8 +26,8 @@
 1	.vscode\\c_cpp_properties (2).json	/^                    "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM/;"	s	array:configurations.0.browse.path
 1	.vscode\\c_cpp_properties (2).json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 1	.vscode\\c_cpp_properties (2).json	/^                "STM32F407xx",$/;"	s	array:configurations.0.defines
-1	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
-1	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_RoboCa/;"	s	array:configurations.0.includePath
+1	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM/;"	s	array:configurations.0.browse.path
+1	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 1	.vscode\\c_cpp_properties.json	/^                "STM32F407xx",$/;"	s	array:configurations.0.defines
 1	.vscode\\compile_commands.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
 1	.vscode\\compile_commands.json	/^                "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_RoboCa/;"	s	array:configurations.0.includePath
@@ -120,8 +120,8 @@
 2	.vscode\\c_cpp_properties (2).json	/^                    "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM/;"	s	array:configurations.0.browse.path
 2	.vscode\\c_cpp_properties (2).json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 2	.vscode\\c_cpp_properties (2).json	/^                "USE_HAL_DRIVER",$/;"	s	array:configurations.0.defines
-2	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
-2	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_RoboCa/;"	s	array:configurations.0.includePath
+2	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM/;"	s	array:configurations.0.browse.path
+2	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 2	.vscode\\c_cpp_properties.json	/^                "USE_HAL_DRIVER",$/;"	s	array:configurations.0.defines
 2	.vscode\\compile_commands.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
 2	.vscode\\compile_commands.json	/^                "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_RoboCa/;"	s	array:configurations.0.includePath
@@ -212,8 +212,8 @@
 3	.vscode\\c_cpp_properties (2).json	/^                    "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM/;"	s	array:configurations.0.browse.path
 3	.vscode\\c_cpp_properties (2).json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 3	.vscode\\c_cpp_properties (2).json	/^                "F_CPU=168000000L",$/;"	s	array:configurations.0.defines
-3	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
-3	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_RoboCa/;"	s	array:configurations.0.includePath
+3	.vscode\\c_cpp_properties.json	/^                    "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM/;"	s	array:configurations.0.browse.path
+3	.vscode\\c_cpp_properties.json	/^                "C:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Project\/STM32F4/;"	s	array:configurations.0.includePath
 3	.vscode\\c_cpp_properties.json	/^                "F_CPU=168000000L",$/;"	s	array:configurations.0.defines
 3	.vscode\\compile_commands.json	/^                    "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_Ro/;"	s	array:configurations.0.browse.path
 3	.vscode\\compile_commands.json	/^                "C:\/Users\/Broms\/YandexDisk\/PROJECTS\/RoboCar\/STM32Project\/STM32F407_RoboCa/;"	s	array:configurations.0.includePath
@@ -1279,7 +1279,9 @@ AWD3_EVENT	Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy\\stm32_hal_legacy.h	/^#def
 AWD_EVENT	Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy\\stm32_hal_legacy.h	/^#define AWD_EVENT /;"	d
 A_BLOCK_LINK	Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\MemMang\\heap_4.c	/^typedef struct A_BLOCK_LINK$/;"	s	file:
 A_BLOCK_LINK	src\\CubeMX_Middlewares\\heap_4.c	/^typedef struct A_BLOCK_LINK$/;"	s	file:
+AccelCommandQueueHandle	src\\freertos.c	/^osMessageQId AccelCommandQueueHandle;$/;"	v	typeref:typename:osMessageQId
 AccelDataStruct	Inc\\MPU9250.h	/^}  AccelDataStruct;$/;"	t	typeref:struct:__anon1400d1f30108
+AccelStateQueueHandle	src\\freertos.c	/^osMessageQId AccelStateQueueHandle;$/;"	v	typeref:typename:osMessageQId
 AccelX	Inc\\transfer_data_type.h	/^   uint16_t AccelX;$/;"	m	struct:__anon724ffa100308	typeref:typename:uint16_t
 AccelY	Inc\\transfer_data_type.h	/^   uint16_t AccelY;$/;"	m	struct:__anon724ffa100308	typeref:typename:uint16_t
 AccelZ	Inc\\transfer_data_type.h	/^   uint16_t AccelZ;$/;"	m	struct:__anon724ffa100308	typeref:typename:uint16_t
@@ -1358,6 +1360,7 @@ BaseType_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\GCC\\ARM_CM4F\\
 BaseType_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\IAR\\ARM_CM4F\\portmacro.h	/^typedef long BaseType_t;$/;"	t	typeref:typename:long
 BaseType_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\RVDS\\ARM_CM4F\\portmacro.h	/^typedef long BaseType_t;$/;"	t	typeref:typename:long
 BatteryControlStruct	Inc\\transfer_data_type.h	/^} BatteryControlStruct;$/;"	t	typeref:struct:__anon724ffa100608
+BatteryStateQueueHandle	src\\freertos.c	/^osMessageQId BatteryStateQueueHandle;$/;"	v	typeref:typename:osMessageQId
 BatteryVoltage	Inc\\transfer_data_type.h	/^  uint16_t BatteryVoltage;$/;"	m	struct:__anon724ffa100608	typeref:typename:uint16_t
 BaudRate	Drivers\\STM32F4xx_HAL_Driver\\Inc\\stm32f4xx_hal_uart.h	/^  uint32_t BaudRate;                  \/*!< This member configures the UART communication baud r/;"	m	struct:__anon8e8b0c5c0108	typeref:typename:uint32_t
 BaudRatePrescaler	Drivers\\STM32F4xx_HAL_Driver\\Inc\\stm32f4xx_hal_spi.h	/^  uint32_t BaudRatePrescaler;  \/*!< Specifies the Baud Rate prescaler value which will be$/;"	m	struct:__anon3a83370c0108	typeref:typename:uint32_t
@@ -5925,6 +5928,8 @@ DCMI_SR_VSYNC	Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include\\stm32f407xx.h	/^#d
 DCMI_SR_VSYNC_Msk	Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include\\stm32f407xx.h	/^#define DCMI_SR_VSYNC_Msk /;"	d
 DCMI_SR_VSYNC_Pos	Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include\\stm32f407xx.h	/^#define DCMI_SR_VSYNC_Pos /;"	d
 DCMI_TypeDef	Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include\\stm32f407xx.h	/^} DCMI_TypeDef;$/;"	t	typeref:struct:__anonf0fbcee90b08
+DCMotorCommandQueueHandle	src\\freertos.c	/^osMessageQId DCMotorCommandQueueHandle;$/;"	v	typeref:typename:osMessageQId
+DCMotorStateQueueHandle	src\\freertos.c	/^osMessageQId DCMotorStateQueueHandle;$/;"	v	typeref:typename:osMessageQId
 DCOUNT	Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include\\stm32f407xx.h	/^  __IO const uint32_t  DCOUNT;         \/*!< SDIO data counter register,     Address offset: 0x3/;"	m	struct:__anonf0fbcee91c08	typeref:typename:__IO const uint32_t
 DCR	Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include\\stm32f407xx.h	/^  __IO uint32_t DCR;         \/*!< TIM DMA control register,            Address offset: 0x48 *\/$/;"	m	struct:__anonf0fbcee91e08	typeref:typename:__IO uint32_t
 DCRDR	Drivers\\CMSIS\\Include\\core_cm3.h	/^  __IOM uint32_t DCRDR;                  \/*!< Offset: 0x008 (R\/W)  Debug Core Register Data Re/;"	m	struct:__anoncee33efc1208	typeref:typename:__IOM uint32_t
@@ -6814,6 +6819,7 @@ DWT_Type	Drivers\\CMSIS\\Include\\core_cm7.h	/^} DWT_Type;$/;"	t	typeref:struct:
 DWT_Type	Drivers\\CMSIS\\Include\\core_sc300.h	/^} DWT_Type;$/;"	t	typeref:struct:__anonccff54a20f08
 DaemonTaskMessage_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\timers.c	/^} DaemonTaskMessage_t;$/;"	t	typeref:struct:tmrTimerQueueMessage	file:
 DaemonTaskMessage_t	src\\CubeMX_Middlewares\\timers.c	/^} DaemonTaskMessage_t;$/;"	t	typeref:struct:tmrTimerQueueMessage	file:
+Data	src\\freertos.c	/^   uint8_t Data[12];$/;"	v	typeref:typename:int x uint8_t[12]
 Data	src\\freertos.c	/^   uint8_t Data[12];$/;"	v	typeref:typename:uint8_t[12]
 Data2	src\\freertos.c	/^   uint8_t Data2[12];$/;"	v	typeref:typename:uint8_t[12]
 DataAlign	Drivers\\STM32F4xx_HAL_Driver\\Inc\\stm32f4xx_hal_adc.h	/^  uint32_t DataAlign;             \/*!< Specifies ADC data alignment to right (MSB on register b/;"	m	struct:__anon3936cfe80108	typeref:typename:uint32_t
@@ -16425,6 +16431,7 @@ RXCRCR	Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include\\stm32f407xx.h	/^  __IO ui
 RangeControlStruct	Inc\\transfer_data_type.h	/^} RangeControlStruct;$/;"	t	typeref:struct:__anon724ffa100508
 RangeLeft	Inc\\transfer_data_type.h	/^  uint16_t RangeLeft;$/;"	m	struct:__anon724ffa100508	typeref:typename:uint16_t
 RangeRigth	Inc\\transfer_data_type.h	/^  uint16_t RangeRigth;$/;"	m	struct:__anon724ffa100508	typeref:typename:uint16_t
+RangersStateQueueHandle	src\\freertos.c	/^osMessageQId RangersStateQueueHandle;$/;"	v	typeref:typename:osMessageQId
 Rank	Drivers\\STM32F4xx_HAL_Driver\\Inc\\stm32f4xx_hal_adc.h	/^  uint32_t Rank;                   \/*!< Specifies the rank in the regular group sequencer.$/;"	m	struct:__anon3936cfe80208	typeref:typename:uint32_t
 ReadDeviceID	src\\MPU9250.c	/^uint8_t ReadDeviceID()$/;"	f	typeref:typename:uint8_t
 RepetitionCounter	Drivers\\STM32F4xx_HAL_Driver\\Inc\\stm32f4xx_hal_tim.h	/^  uint32_t RepetitionCounter;  \/*!< Specifies the repetition counter value. Each time the RCR d/;"	m	struct:__anon3a9189ea0108	typeref:typename:uint32_t
@@ -18205,9 +18212,10 @@ StaticQueue_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\include\\FreeRTOS.h	/^
 StaticSemaphore_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\include\\FreeRTOS.h	/^typedef StaticQueue_t StaticSemaphore_t;$/;"	t	typeref:typename:StaticQueue_t
 StaticTask_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\include\\FreeRTOS.h	/^} StaticTask_t;$/;"	t	typeref:struct:xSTATIC_TCB
 StaticTimer_t	Middlewares\\Third_Party\\FreeRTOS\\Source\\include\\FreeRTOS.h	/^} StaticTimer_t;$/;"	t	typeref:struct:xSTATIC_TIMER
-StepCommandQueueHandle	src\\freertos.c	/^osMessageQId StepCommandQueueHandle;$/;"	v	typeref:typename:osMessageQId
+StepMotorCommandQueueHandle	src\\freertos.c	/^osMessageQId StepMotorCommandQueueHandle;$/;"	v	typeref:typename:osMessageQId
 StepMotorControlStruct	Inc\\transfer_data_type.h	/^} StepMotorControlStruct;$/;"	t	typeref:struct:__anon724ffa100408
 StepMotorFunc	src\\freertos.c	/^void StepMotorFunc(void const * argument)$/;"	f	typeref:typename:void
+StepMotorStateQueueHandle	src\\freertos.c	/^osMessageQId StepMotorStateQueueHandle;$/;"	v	typeref:typename:osMessageQId
 StepMotor_ConHandle	src\\freertos.c	/^osThreadId StepMotor_ConHandle;$/;"	v	typeref:typename:osThreadId
 StopBits	Drivers\\STM32F4xx_HAL_Driver\\Inc\\stm32f4xx_hal_uart.h	/^  uint32_t StopBits;                  \/*!< Specifies the number of stop bits transmitted.$/;"	m	struct:__anon8e8b0c5c0108	typeref:typename:uint32_t
 StreamBaseAddress	Drivers\\STM32F4xx_HAL_Driver\\Inc\\stm32f4xx_hal_dma.h	/^  uint32_t                   StreamBaseAddress;                                                \//;"	m	struct:__DMA_HandleTypeDef	typeref:typename:uint32_t
@@ -24758,7 +24766,7 @@ executable	.vscode\\launch (2).json	/^            "executable": "c:\/Users\/brom
 executable	.vscode\\launch (2).json	/^            "executable": "c:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Projec/;"	s	object:configurations.1
 executable	.vscode\\launch.json	/^            "executable": "c:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Projec/;"	s	object:configurations.0
 executable	.vscode\\launch.json	/^            "executable": "c:\/Users\/broms\/YandexDisk-orizonti\/PROJECTS\/RoboCar\/STM32Projec/;"	s	object:configurations.1
-extra_scripts	platformio.ini	/^extra_scripts = pre:C:\/Users\/broms\/YandexDisk\/IMPORTANT_STUFF\/CONFIGURES_UTILITE\/MyPIOUtil/;"	k	section:env:genericSTM32F407VET6
+extra_scripts	platformio.ini	/^extra_scripts = pre:C:\/Users\/broms\/YandexDisk-orizonti\/IMPORTANT_STUFF\/CONFIGURES_UTILITE\//;"	k	section:env:genericSTM32F407VET6
 fftLen	Drivers\\CMSIS\\Include\\arm_math.h	/^    uint16_t fftLen;                   \/**< length of the FFT. *\/$/;"	m	struct:__anond9a59aba1908	typeref:typename:uint16_t
 fftLen	Drivers\\CMSIS\\Include\\arm_math.h	/^    uint16_t fftLen;                   \/**< length of the FFT. *\/$/;"	m	struct:__anond9a59aba1a08	typeref:typename:uint16_t
 fftLen	Drivers\\CMSIS\\Include\\arm_math.h	/^    uint16_t fftLen;                   \/**< length of the FFT. *\/$/;"	m	struct:__anond9a59aba1b08	typeref:typename:uint16_t

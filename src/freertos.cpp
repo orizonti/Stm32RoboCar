@@ -69,10 +69,8 @@
 
 #define CLR_set() HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, GPIO_PIN_SET)
 #define CLR_reset() HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, GPIO_PIN_RESET)
-
    uint8_t Data[12];
    uint8_t Data2[12];
-   
 
 
 
