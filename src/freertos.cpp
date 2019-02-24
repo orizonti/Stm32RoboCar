@@ -69,11 +69,48 @@
 
 #define CLR_set() HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, GPIO_PIN_SET)
 #define CLR_reset() HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, GPIO_PIN_RESET)
-   uint8_t Data[12];
-   uint8_t Data2[12];
+//   uint8_t Data[12];
+//   uint8_t Data2[12];
+class VoltageIndicatorClass
+{
+  public:
+  VoltageIndicatorClass()
+  {
+ Data2[0] = 0x0;    Data[0] = 0x0;
+ Data2[1] = 0x0;    Data[1] = 0x1;
+ Data2[2] = 0x0;    Data[2] = 0x3;
+ Data2[3] = 0x0;    Data[3] = 0x7;
+ Data2[4] = 0x0;    Data[4] = 0xF;
+ Data2[5] = 0x0;    Data[5] = 0x1F;
+ Data2[6] = 0x0;    Data[6] = 0x3F;
+ Data2[7] = 0x0;    Data[7] = 0x7F;
+ Data2[8] = 0x0;    Data[8] = 0xFF;
+ Data2[9] = 0x8;    Data[9] = 0xFF;
+ Data2[10] = 0xC;   Data[10] = 0xFF;
+ Data2[11] = 0xFF;  Data[11] = 0xFF;
+
+  cs_reset();
+ }
+
+  uint8_t Data[12];
+  uint8_t Data2[12];
+
+  void ShowLevel(uint8_t Level)
+  {
+
+          HAL_SPI_Transmit_IT(&hspi3, Data2, 1);
+          HAL_SPI_Transmit_IT(&hspi3, Data, 1);
+          cs_strob();
+
+          HAL_SPI_Transmit_IT(&hspi3, Data2 + Level, 1);
+          HAL_SPI_Transmit_IT(&hspi3, Data + Level, 1);
+          cs_strob();
+          osDelay(500);
+  }
+};
 
 
-
+VoltageIndicatorClass VoltageIndicator;
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi3;
 
@@ -253,21 +290,20 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_SensorMonitorFunction */
 void SensorMonitorFunction(void const * argument)
 {
- Data2[0] = 0x0;    Data[0] = 0x0;
- Data2[1] = 0x0;    Data[1] = 0x1;
- Data2[2] = 0x0;    Data[2] = 0x3;
- Data2[3] = 0x0;    Data[3] = 0x7;
- Data2[4] = 0x0;    Data[4] = 0xF;
- Data2[5] = 0x0;    Data[5] = 0x1F;
- Data2[6] = 0x0;    Data[6] = 0x3F;
- Data2[7] = 0x0;    Data[7] = 0x7F;
- Data2[8] = 0x0;    Data[8] = 0xFF;
- Data2[9] = 0x8;    Data[9] = 0xFF;
- Data2[10] = 0xC;   Data[10] = 0xFF;
- Data2[11] = 0xFF;  Data[11] = 0xFF;
+ //Data2[0] = 0x0;    Data[0] = 0x0;
+ //Data2[1] = 0x0;    Data[1] = 0x1;
+ //Data2[2] = 0x0;    Data[2] = 0x3;
+ //Data2[3] = 0x0;    Data[3] = 0x7;
+ //Data2[4] = 0x0;    Data[4] = 0xF;
+ //Data2[5] = 0x0;    Data[5] = 0x1F;
+ //Data2[6] = 0x0;    Data[6] = 0x3F;
+ //Data2[7] = 0x0;    Data[7] = 0x7F;
+ //Data2[8] = 0x0;    Data[8] = 0xFF;
+ //Data2[9] = 0x8;    Data[9] = 0xFF;
+ //Data2[10] = 0xC;   Data[10] = 0xFF;
+ //Data2[11] = 0xFF;  Data[11] = 0xFF;
 
  uint8_t Counter = 0;
-  cs_reset();
   /* USER CODE BEGIN SensorMonitorFunction */
 
  //  AccelData = malloc(sizeof(AccelDataStruct));
@@ -284,21 +320,14 @@ void SensorMonitorFunction(void const * argument)
  //   MPU_get_gyro(GyroData);
  //   memcpy(AccelerometerData + 6,AccelData + 6,6);
  //   memcpy(AccelerometerData + 12,GyroData + 6,6);
-  Counter++;
-//				   CLR_reset(); HAL_Delay(10); CLR_set();
-			   if(Counter > 11)
-			   {
-				   Counter = 0;
-			  }
-
-  HAL_SPI_Transmit_IT(&hspi3, Data2, 1);
-  HAL_SPI_Transmit_IT(&hspi3, Data, 1);
-  cs_strob();
-
-  HAL_SPI_Transmit_IT(&hspi3, Data2 + Counter, 1);
-  HAL_SPI_Transmit_IT(&hspi3, Data + Counter, 1);
-  cs_strob();
-  osDelay(500);
+ //---------------------------------------------------------
+          Counter++;
+                if(Counter > 11)
+                {
+                  Counter = 0;
+                }
+          VoltageIndicator.ShowLevel(Counter);
+ //---------------------------------------------------------
  //   osMessagePut(AccelStateQueueHandle,(uint32_t)AccelerometerData,5);
   }
  // free(AccelData);
