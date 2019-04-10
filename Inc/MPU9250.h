@@ -3,7 +3,7 @@
 
 #include "i2c.h"
 #include "usart.h"
-
+//test
 #define MPU9250_ADDRESS         0x68
 
 #define MPU9250_SELF_TEST_X_GYRO        0x00

@@ -952,9 +952,9 @@ AWD3_EVENT	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	80;"	d
 AWD_EVENT	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	77;"	d
 A_BLOCK_LINK	.\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c	/^typedef struct A_BLOCK_LINK$/;"	s	file:
 A_BLOCK_LINK	.\src\CubeMX_Middlewares\heap_4.c	/^typedef struct A_BLOCK_LINK$/;"	s	file:
-AccelCommandQueueHandle	src\freertos.cpp	/^osMessageQId AccelCommandQueueHandle;$/;"	v
+AccelCommandQueueHandle	.\src\freertos.cpp	/^osMessageQId AccelCommandQueueHandle;$/;"	v
 AccelDataStruct	.\Inc\MPU9250.h	/^}  AccelDataStruct;$/;"	t	typeref:struct:__anon276
-AccelStateQueueHandle	src\freertos.cpp	/^osMessageQId AccelStateQueueHandle;$/;"	v
+AccelStateQueueHandle	.\src\freertos.cpp	/^osMessageQId AccelStateQueueHandle;$/;"	v
 AccelX	.\Inc\transfer_data_type.h	/^   uint16_t AccelX;$/;"	m	struct:__anon280
 AccelY	.\Inc\transfer_data_type.h	/^   uint16_t AccelY;$/;"	m	struct:__anon280
 AccelZ	.\Inc\transfer_data_type.h	/^   uint16_t AccelZ;$/;"	m	struct:__anon280
@@ -1033,7 +1033,7 @@ BaseType_t	.\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\portm
 BaseType_t	.\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\portmacro.h	/^typedef long BaseType_t;$/;"	t
 BaseType_t	.\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h	/^typedef long BaseType_t;$/;"	t
 BatteryControlStruct	.\Inc\transfer_data_type.h	/^} BatteryControlStruct;$/;"	t	typeref:struct:__anon283
-BatteryStateQueueHandle	src\freertos.cpp	/^osMessageQId BatteryStateQueueHandle;$/;"	v
+BatteryStateQueueHandle	.\src\freertos.cpp	/^osMessageQId BatteryStateQueueHandle;$/;"	v
 BatteryVoltage	.\Inc\transfer_data_type.h	/^  uint16_t BatteryVoltage;$/;"	m	struct:__anon283
 BaudRate	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h	/^  uint32_t BaudRate;                  \/*!< This member configures the UART communication baud rate.$/;"	m	struct:__anon272
 BaudRatePrescaler	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h	/^  uint32_t BaudRatePrescaler;  \/*!< Specifies the Baud Rate prescaler value which will be$/;"	m	struct:__anon256
@@ -4692,8 +4692,8 @@ CLKCR	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_
 CLKPhase	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h	/^  uint32_t CLKPhase;           \/*!< Specifies the clock active edge for the bit capture.$/;"	m	struct:__anon256
 CLKPolarity	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h	/^  uint32_t CLKPolarity;        \/*!< Specifies the serial clock steady state.$/;"	m	struct:__anon256
 CLOCKSWITCH_TIMEOUT_VALUE	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h	1357;"	d
-CLR_reset	Inc\SensorsFunction.h	11;"	d
-CLR_set	Inc\SensorsFunction.h	10;"	d
+CLR_reset	.\Inc\SensorsFunction.h	11;"	d
+CLR_set	.\Inc\SensorsFunction.h	10;"	d
 CMD	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t CMD;                   \/*!< SDIO command register,          Address offset: 0x0C *\/$/;"	m	struct:__anon28
 CMPCR	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t CMPCR;        \/*!< SYSCFG Compensation cell control register,         Address offset: 0x20      *\/$/;"	m	struct:__anon22
 CMPCR_CMP_PD_BB	.\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c	94;"	d	file:
@@ -5201,7 +5201,7 @@ CoreDebug_Type	.\Drivers\CMSIS\Include\core_cm7.h	/^} CoreDebug_Type;$/;"	t	type
 CoreDebug_Type	.\Drivers\CMSIS\Include\core_sc300.h	/^} CoreDebug_Type;$/;"	t	typeref:struct:__anon214
 CounterMode	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h	/^  uint32_t CounterMode;       \/*!< Specifies the counter mode.$/;"	m	struct:__anon258
 CurrentConsumption	.\Inc\transfer_data_type.h	/^  uint16_t CurrentConsumption;$/;"	m	struct:__anon283
-CurrentLevel	Inc\SensorsFunction.h	/^  uint8_t CurrentLevel = 0;$/;"	m	class:VoltageIndicatorClass
+CurrentLevel	.\Inc\SensorsFunction.h	/^  uint8_t CurrentLevel = 0;$/;"	m	class:VoltageIndicatorClass
 DAC	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	1101;"	d
 DAC1	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	1100;"	d
 DAC1_CHANNEL_1	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	241;"	d
@@ -5615,8 +5615,8 @@ DCMI_SR_VSYNC	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	5664;"	d
 DCMI_SR_VSYNC_Msk	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	5663;"	d
 DCMI_SR_VSYNC_Pos	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	5662;"	d
 DCMI_TypeDef	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^} DCMI_TypeDef;$/;"	t	typeref:struct:__anon11
-DCMotorCommandQueueHandle	src\freertos.cpp	/^osMessageQId DCMotorCommandQueueHandle;$/;"	v
-DCMotorStateQueueHandle	src\freertos.cpp	/^osMessageQId DCMotorStateQueueHandle;$/;"	v
+DCMotorCommandQueueHandle	.\src\freertos.cpp	/^osMessageQId DCMotorCommandQueueHandle;$/;"	v
+DCMotorStateQueueHandle	.\src\freertos.cpp	/^osMessageQId DCMotorStateQueueHandle;$/;"	v
 DCOUNT	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO const uint32_t  DCOUNT;         \/*!< SDIO data counter register,     Address offset: 0x30 *\/$/;"	m	struct:__anon28
 DCR	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t DCR;         \/*!< TIM DMA control register,            Address offset: 0x48 *\/$/;"	m	struct:__anon30
 DCRDR	.\Drivers\CMSIS\Include\core_cm3.h	/^  __IOM uint32_t DCRDR;                  \/*!< Offset: 0x008 (R\/W)  Debug Core Register Data Register *\/$/;"	m	struct:__anon145
@@ -5630,8 +5630,8 @@ DCRSR	.\Drivers\CMSIS\Include\core_sc300.h	/^  __OM  uint32_t DCRSR;            
 DCTL	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t DCTL;            \/*!< dev Control Register         804h *\/$/;"	m	struct:__anon35
 DCTRL	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t DCTRL;                 \/*!< SDIO data control register,     Address offset: 0x2C *\/$/;"	m	struct:__anon28
 DC_MotorControlStruct	.\Inc\transfer_data_type.h	/^} DC_MotorControlStruct;$/;"	t	typeref:struct:__anon279
-DC_Motor_ContHandle	src\freertos.cpp	/^osThreadId DC_Motor_ContHandle;$/;"	v
-DC_Motor_Function	src\freertos.cpp	/^void DC_Motor_Function(void const * argument)$/;"	f
+DC_Motor_ContHandle	.\src\freertos.cpp	/^osThreadId DC_Motor_ContHandle;$/;"	v
+DC_Motor_Function	.\src\freertos.cpp	/^void DC_Motor_Function(void const * argument)$/;"	f
 DEACHINT	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t DEACHINT;        \/*!< dedicated EP interrupt       838h *\/$/;"	m	struct:__anon35
 DEACHMSK	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t DEACHMSK;        \/*!< dedicated EP msk             83Ch *\/$/;"	m	struct:__anon35
 DEFAULT_RESET_VALUE	.\Inc\MPU9250.h	120;"	d
@@ -6506,8 +6506,8 @@ DWT_Type	.\Drivers\CMSIS\Include\core_cm7.h	/^} DWT_Type;$/;"	t	typeref:struct:_
 DWT_Type	.\Drivers\CMSIS\Include\core_sc300.h	/^} DWT_Type;$/;"	t	typeref:struct:__anon211
 DaemonTaskMessage_t	.\Middlewares\Third_Party\FreeRTOS\Source\timers.c	/^} DaemonTaskMessage_t;$/;"	t	typeref:struct:tmrTimerQueueMessage	file:
 DaemonTaskMessage_t	.\src\CubeMX_Middlewares\timers.c	/^} DaemonTaskMessage_t;$/;"	t	typeref:struct:tmrTimerQueueMessage	file:
-Data	Inc\SensorsFunction.h	/^  uint8_t Data[12];$/;"	m	class:VoltageIndicatorClass
-Data2	Inc\SensorsFunction.h	/^  uint8_t Data2[12];$/;"	m	class:VoltageIndicatorClass
+Data	.\Inc\SensorsFunction.h	/^  uint8_t Data[12];$/;"	m	class:VoltageIndicatorClass
+Data2	.\Inc\SensorsFunction.h	/^  uint8_t Data2[12];$/;"	m	class:VoltageIndicatorClass
 DataAlign	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_adc.h	/^  uint32_t DataAlign;             \/*!< Specifies ADC data alignment to right (MSB on register bit 11 and LSB on register bit 0) (default setting)$/;"	m	struct:__anon216
 DataSize	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h	/^  uint32_t DataSize;           \/*!< Specifies the SPI data size.$/;"	m	struct:__anon256
 DeadTime	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h	/^  uint32_t DeadTime;                     \/*!< TIM dead Time. $/;"	m	struct:__anon271
@@ -7895,7 +7895,7 @@ ErrorCode	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_i2c.h	/^  __IO uint32
 ErrorCode	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h	/^  __IO uint32_t              ErrorCode;    \/* SPI Error code *\/$/;"	m	struct:__SPI_HandleTypeDef
 ErrorCode	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h	/^  __IO uint32_t                 ErrorCode;        \/*!< UART Error code                    *\/$/;"	m	struct:__anon274
 ErrorStatus	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h	/^} ErrorStatus;$/;"	t	typeref:enum:__anon42
-Error_Handler	.\src\main.cpp	/^void Error_Handler(void)$/;"	f
+Error_Handler	src\main.cpp	/^void Error_Handler(void)$/;"	f
 EventBits_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h	/^typedef TickType_t EventBits_t;$/;"	t
 EventCount	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_i2c.h	/^  __IO uint32_t              EventCount;     \/*!< I2C Event counter                        *\/$/;"	m	struct:__anon240
 EventGroupHandle_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h	/^typedef void * EventGroupHandle_t;$/;"	t
@@ -11871,7 +11871,7 @@ HAL_TIM_PWM_Stop	.\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c	/^HAL_St
 HAL_TIM_PWM_Stop_DMA	.\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c	/^HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel)$/;"	f
 HAL_TIM_PWM_Stop_IT	.\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c	/^HAL_StatusTypeDef HAL_TIM_PWM_Stop_IT (TIM_HandleTypeDef *htim, uint32_t Channel)$/;"	f
 HAL_TIM_PeriodElapsedCallback	.\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c	/^__weak void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)$/;"	f
-HAL_TIM_PeriodElapsedCallback	.\src\main.cpp	/^void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)$/;"	f
+HAL_TIM_PeriodElapsedCallback	src\main.cpp	/^void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)$/;"	f
 HAL_TIM_ReadCapturedValue	.\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c	/^uint32_t HAL_TIM_ReadCapturedValue(TIM_HandleTypeDef *htim, uint32_t Channel)$/;"	f
 HAL_TIM_STATE_BUSY	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h	/^  HAL_TIM_STATE_BUSY              = 0x02U,    \/*!< An internal process is ongoing              *\/$/;"	e	enum:__anon266
 HAL_TIM_STATE_ERROR	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h	/^  HAL_TIM_STATE_ERROR             = 0x04U     \/*!< Reception process is ongoing                *\/$/;"	e	enum:__anon266
@@ -13222,10 +13222,10 @@ LSUCNT	.\Drivers\CMSIS\Include\core_cm4.h	/^  __IOM uint32_t LSUCNT;            
 LSUCNT	.\Drivers\CMSIS\Include\core_cm7.h	/^  __IOM uint32_t LSUCNT;                 \/*!< Offset: 0x014 (R\/W)  LSU Count Register *\/$/;"	m	struct:__anon179
 LSUCNT	.\Drivers\CMSIS\Include\core_sc300.h	/^  __IOM uint32_t LSUCNT;                 \/*!< Offset: 0x014 (R\/W)  LSU Count Register *\/$/;"	m	struct:__anon211
 LTR	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t LTR;    \/*!< ADC watchdog lower threshold register,       Address offset: 0x28 *\/$/;"	m	struct:__anon2
-Line1	src\freertos.cpp	/^   GPIO_PinState Line1;$/;"	m	struct:__anon1	file:
-Line2	src\freertos.cpp	/^   GPIO_PinState Line2;$/;"	m	struct:__anon1	file:
-Line3	src\freertos.cpp	/^   GPIO_PinState Line3;$/;"	m	struct:__anon1	file:
-Line4	src\freertos.cpp	/^   GPIO_PinState Line4;$/;"	m	struct:__anon1	file:
+Line1	.\src\freertos.cpp	/^   GPIO_PinState Line1;$/;"	m	struct:__anon299	file:
+Line2	.\src\freertos.cpp	/^   GPIO_PinState Line2;$/;"	m	struct:__anon299	file:
+Line3	.\src\freertos.cpp	/^   GPIO_PinState Line3;$/;"	m	struct:__anon299	file:
+Line4	.\src\freertos.cpp	/^   GPIO_PinState Line4;$/;"	m	struct:__anon299	file:
 ListItem_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\list.h	/^typedef struct xLIST_ITEM ListItem_t;					\/* For some reason lint wants this as two separate definitions. *\/$/;"	t	typeref:struct:xLIST_ITEM
 List_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\list.h	/^} List_t;$/;"	t	typeref:struct:xLIST
 Lock	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_adc.h	/^  HAL_LockTypeDef               Lock;                        \/*!< ADC locking object *\/$/;"	m	struct:__anon219
@@ -13937,7 +13937,7 @@ MVFR1	.\Drivers\CMSIS\Include\core_cm7.h	/^  __IM  uint32_t MVFR1;              
 MVFR2	.\Drivers\CMSIS\Include\core_cm7.h	/^  __IM  uint32_t MVFR2;                  \/*!< Offset: 0x018 (R\/ )  Media and FP Feature Register 2 *\/$/;"	m	struct:__anon182
 MVFR2	.\Drivers\CMSIS\Include\core_cm7.h	/^  __IM  uint32_t MVFR2;                  \/*!< Offset: 0x248 (R\/ )  Media and VFP Feature Register 1 *\/$/;"	m	struct:__anon174
 MX_ADC1_Init	.\src\adc.c	/^void MX_ADC1_Init(void)$/;"	f
-MX_FREERTOS_Init	src\freertos.cpp	/^void MX_FREERTOS_Init(void) {$/;"	f
+MX_FREERTOS_Init	.\src\freertos.cpp	/^void MX_FREERTOS_Init(void) {$/;"	f
 MX_GPIO_Init	.\src\gpio.c	/^void MX_GPIO_Init(void)$/;"	f
 MX_I2C1_Init	.\src\i2c.c	/^void MX_I2C1_Init(void)$/;"	f
 MX_SPI1_Init	.\src\spi.c	/^void MX_SPI1_Init(void)$/;"	f
@@ -16856,7 +16856,7 @@ RXCRCR	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32
 RangeControlStruct	.\Inc\transfer_data_type.h	/^} RangeControlStruct;$/;"	t	typeref:struct:__anon282
 RangeLeft	.\Inc\transfer_data_type.h	/^  uint16_t RangeLeft;$/;"	m	struct:__anon282
 RangeRigth	.\Inc\transfer_data_type.h	/^  uint16_t RangeRigth;$/;"	m	struct:__anon282
-RangersStateQueueHandle	src\freertos.cpp	/^osMessageQId RangersStateQueueHandle;$/;"	v
+RangersStateQueueHandle	.\src\freertos.cpp	/^osMessageQId RangersStateQueueHandle;$/;"	v
 Rank	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_adc.h	/^  uint32_t Rank;                   \/*!< Specifies the rank in the regular group sequencer.$/;"	m	struct:__anon217
 ReadDeviceID	.\src\MPU9250.c	/^uint8_t ReadDeviceID()$/;"	f
 RepetitionCounter	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h	/^  uint32_t RepetitionCounter;  \/*!< Specifies the repetition counter value. Each time the RCR downcounter$/;"	m	struct:__anon258
@@ -18039,7 +18039,7 @@ SD_SDMMC_FUNCTION_FAILED	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_leg
 SD_SDMMC_SEND_IF_COND	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	3019;"	d
 SD_SDMMC_UNKNOWN_FUNCTION	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	3003;"	d
 SEMAPHORE_H	.\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h	71;"	d
-SENS_FUNCTION	Inc\SensorsFunction.h	2;"	d
+SENS_FUNCTION	.\Inc\SensorsFunction.h	2;"	d
 SET	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h	/^  SET = !RESET$/;"	e	enum:__anon40
 SET_BIT	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h	228;"	d
 SFCR	.\Drivers\CMSIS\Include\core_sc000.h	/^  __IOM uint32_t SFCR;                   \/*!< Offset: 0x290 (R\/W)  Security Features Control Register *\/$/;"	m	struct:__anon193
@@ -18367,7 +18367,7 @@ SSPSR	.\Drivers\CMSIS\Include\core_sc300.h	/^  __IOM uint32_t SSPSR;            
 SSR	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t SSR;     \/*!< RTC sub second register,                                  Address offset: 0x28 *\/$/;"	m	struct:__anon27
 STA	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO const uint32_t  STA;            \/*!< SDIO status register,           Address offset: 0x34 *\/$/;"	m	struct:__anon28
 STACK_MACROS_H	.\Middlewares\Third_Party\FreeRTOS\Source\include\StackMacros.h	71;"	d
-STEP_COMMAND	src\freertos.cpp	/^ } STEP_COMMAND;$/;"	t	typeref:struct:__anon1	file:
+STEP_COMMAND	.\src\freertos.cpp	/^ } STEP_COMMAND;$/;"	t	typeref:struct:__anon299	file:
 STIR	.\Drivers\CMSIS\Include\core_cm3.h	/^  __OM  uint32_t STIR;                   \/*!< Offset: 0xE00 ( \/W)  Software Trigger Interrupt Register *\/$/;"	m	struct:__anon136
 STIR	.\Drivers\CMSIS\Include\core_cm4.h	/^  __OM  uint32_t STIR;                   \/*!< Offset: 0xE00 ( \/W)  Software Trigger Interrupt Register *\/$/;"	m	struct:__anon154
 STIR	.\Drivers\CMSIS\Include\core_cm7.h	/^  __OM  uint32_t STIR;                   \/*!< Offset: 0x200 ( \/W)  Software Triggered Interrupt Register *\/$/;"	m	struct:__anon174
@@ -18609,9 +18609,11 @@ Sectors	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h	/^  uint16_t
 SectorsBank1	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h	/^  uint16_t SectorsBank1;   \/*!< Specifies the sector(s) set for PCROP for Bank1.$/;"	m	struct:__anon234
 SectorsBank2	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h	/^  uint16_t SectorsBank2;   \/*!< Specifies the sector(s) set for PCROP for Bank2.$/;"	m	struct:__anon234
 SemaphoreHandle_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h	/^typedef QueueHandle_t SemaphoreHandle_t;$/;"	t
-SensorMonitorFunction	src\freertos.cpp	/^void SensorMonitorFunction(void const * argument)$/;"	f
-SensorMonitorinHandle	src\freertos.cpp	/^osThreadId SensorMonitorinHandle;$/;"	v
-SetCommand	src\freertos.cpp	/^ void SetCommand(int in1,int in2,int in3,int in4,STEP_COMMAND* COMMAND)$/;"	f
+SensorMonitorFunction	.\src\freertos.cpp	/^void SensorMonitorFunction(void const * argument)$/;"	f
+SensorMonitorinHandle	.\src\freertos.cpp	/^osThreadId SensorMonitorinHandle;$/;"	v
+SetCommand	.\src\freertos.cpp	/^ void SetCommand(int in1,int in2,int in3,int in4,STEP_COMMAND* COMMAND)$/;"	f
+ShowLevel	.\src\SensorsFunction.cpp	/^  void VoltageIndicatorClass::ShowLevel(uint8_t Level)$/;"	f	class:VoltageIndicatorClass
+ShowNextLevel	.\src\SensorsFunction.cpp	/^void VoltageIndicatorClass::ShowNextLevel()$/;"	f	class:VoltageIndicatorClass
 Sint	.\Drivers\CMSIS\Include\arm_math.h	/^    arm_cfft_instance_f32 Sint;      \/**< Internal CFFT structure. *\/$/;"	m	struct:__anon75
 Size	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h	/^  uint8_t                Size;                  \/*!< Specifies the size of the region to protect. $/;"	m	struct:__anon222
 SlaveMode	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h	/^  uint32_t  SlaveMode;         \/*!< Slave mode selection $/;"	m	struct:__anon265
@@ -18640,11 +18642,11 @@ StaticQueue_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h	/^} S
 StaticSemaphore_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h	/^typedef StaticQueue_t StaticSemaphore_t;$/;"	t
 StaticTask_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h	/^} StaticTask_t;$/;"	t	typeref:struct:xSTATIC_TCB
 StaticTimer_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h	/^} StaticTimer_t;$/;"	t	typeref:struct:xSTATIC_TIMER
-StepMotorCommandQueueHandle	src\freertos.cpp	/^osMessageQId StepMotorCommandQueueHandle;$/;"	v
+StepMotorCommandQueueHandle	.\src\freertos.cpp	/^osMessageQId StepMotorCommandQueueHandle;$/;"	v
 StepMotorControlStruct	.\Inc\transfer_data_type.h	/^} StepMotorControlStruct;$/;"	t	typeref:struct:__anon281
-StepMotorFunc	src\freertos.cpp	/^void StepMotorFunc(void const * argument)$/;"	f
-StepMotorStateQueueHandle	src\freertos.cpp	/^osMessageQId StepMotorStateQueueHandle;$/;"	v
-StepMotor_ConHandle	src\freertos.cpp	/^osThreadId StepMotor_ConHandle;$/;"	v
+StepMotorFunc	.\src\freertos.cpp	/^void StepMotorFunc(void const * argument)$/;"	f
+StepMotorStateQueueHandle	.\src\freertos.cpp	/^osMessageQId StepMotorStateQueueHandle;$/;"	v
+StepMotor_ConHandle	.\src\freertos.cpp	/^osThreadId StepMotor_ConHandle;$/;"	v
 StopBits	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h	/^  uint32_t StopBits;                  \/*!< Specifies the number of stop bits transmitted.$/;"	m	struct:__anon272
 StreamBaseAddress	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h	/^  uint32_t                   StreamBaseAddress;                                                \/*!< DMA Stream Base Address                *\/$/;"	m	struct:__DMA_HandleTypeDef
 StreamIndex	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h	/^  uint32_t                   StreamIndex;                                                      \/*!< DMA Stream Index                       *\/$/;"	m	struct:__DMA_HandleTypeDef
@@ -18804,7 +18806,7 @@ SysTick_VAL_CURRENT_Pos	.\Drivers\CMSIS\Include\core_cm4.h	770;"	d
 SysTick_VAL_CURRENT_Pos	.\Drivers\CMSIS\Include\core_cm7.h	972;"	d
 SysTick_VAL_CURRENT_Pos	.\Drivers\CMSIS\Include\core_sc000.h	557;"	d
 SysTick_VAL_CURRENT_Pos	.\Drivers\CMSIS\Include\core_sc300.h	691;"	d
-SystemClock_Config	.\src\main.cpp	/^void SystemClock_Config(void)$/;"	f
+SystemClock_Config	src\main.cpp	/^void SystemClock_Config(void)$/;"	f
 SystemCoreClock	.\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c	/^uint32_t SystemCoreClock = 16000000;$/;"	v
 SystemCoreClock	.\src\system_stm32f4xx.c	/^uint32_t SystemCoreClock = 16000000;$/;"	v
 SystemCoreClockUpdate	.\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c	/^void SystemCoreClockUpdate(void)$/;"	f
@@ -20025,7 +20027,7 @@ TYPEPROGRAM_FASTWORD	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.
 TYPEPROGRAM_FAST_AND_LAST	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	320;"	d
 TYPEPROGRAM_HALFWORD	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	288;"	d
 TYPEPROGRAM_WORD	.\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h	289;"	d
-TakeStep	src\freertos.cpp	/^ void TakeStep(STEP_COMMAND* COMMAND)$/;"	f
+TakeStep	.\src\freertos.cpp	/^ void TakeStep(STEP_COMMAND* COMMAND)$/;"	f
 TaskFunction_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h	/^typedef void (*TaskFunction_t)( void * );$/;"	t
 TaskHandle_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\task.h	/^typedef void * TaskHandle_t;$/;"	t
 TaskHookFunction_t	.\Middlewares\Third_Party\FreeRTOS\Source\include\task.h	/^typedef BaseType_t (*TaskHookFunction_t)( void * );$/;"	t
@@ -20061,7 +20063,7 @@ UART4_IRQn	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  UART4_I
 UART5	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	1093;"	d
 UART5_BASE	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	969;"	d
 UART5_IRQn	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  UART5_IRQn                  = 53,     \/*!< UART5 global Interrupt                                            *\/$/;"	e	enum:__anon1
-UARTTransferFunction	src\freertos.cpp	/^void UARTTransferFunction(void const * argument)$/;"	f
+UARTTransferFunction	.\src\freertos.cpp	/^void UARTTransferFunction(void const * argument)$/;"	f
 UART_BRR_SAMPLING16	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h	752;"	d
 UART_BRR_SAMPLING8	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h	761;"	d
 UART_CR1_REG_INDEX	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h	710;"	d
@@ -21485,7 +21487,7 @@ USB_OTG_TX0FSA_Pos	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	143
 USERConfig	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h	/^  uint8_t  USERConfig;   \/*!< Program the FLASH User Option Byte: IWDG_SW \/ RST_STOP \/ RST_STDBY. *\/$/;"	m	struct:__anon233
 USE_RTOS	.\Inc\stm32f4xx_hal_conf.h	161;"	d
 USE_SPI_CRC	.\Inc\stm32f4xx_hal_conf.h	236;"	d
-Uart_Control_TaHandle	src\freertos.cpp	/^osThreadId Uart_Control_TaHandle;$/;"	v
+Uart_Control_TaHandle	.\src\freertos.cpp	/^osThreadId Uart_Control_TaHandle;$/;"	v
 UsageFault_Handler	.\src\stm32f4xx_it.c	/^void UsageFault_Handler(void)$/;"	f
 UsageFault_IRQn	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  UsageFault_IRQn             = -10,    \/*!< 6 Cortex-M4 Usage Fault Interrupt                                 *\/$/;"	e	enum:__anon1
 V	.\Drivers\CMSIS\Include\core_cm0.h	/^    uint32_t V:1;                        \/*!< bit:     28  Overflow condition code flag *\/$/;"	m	struct:__anon105::__anon106
@@ -21525,9 +21527,9 @@ VTOR	.\Drivers\CMSIS\Include\core_cm7.h	/^  __IOM uint32_t VTOR;                
 VTOR	.\Drivers\CMSIS\Include\core_sc000.h	/^  __IOM uint32_t VTOR;                   \/*!< Offset: 0x008 (R\/W)  Vector Table Offset Register *\/$/;"	m	struct:__anon193
 VTOR	.\Drivers\CMSIS\Include\core_sc300.h	/^  __IOM uint32_t VTOR;                   \/*!< Offset: 0x008 (R\/W)  Vector Table Offset Register *\/$/;"	m	struct:__anon206
 VoltageForErase	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h	/^  __IO uint8_t                VoltageForErase;    \/*Internal variable to provide voltage range selected by user in IT context*\/$/;"	m	struct:__anon231
-VoltageIndicator	src\freertos.cpp	/^VoltageIndicatorClass VoltageIndicator;$/;"	v
-VoltageIndicatorClass	Inc\SensorsFunction.h	/^  VoltageIndicatorClass()$/;"	f	class:VoltageIndicatorClass
-VoltageIndicatorClass	Inc\SensorsFunction.h	/^class VoltageIndicatorClass$/;"	c
+VoltageIndicator	.\src\freertos.cpp	/^VoltageIndicatorClass VoltageIndicator;$/;"	v
+VoltageIndicatorClass	.\Inc\SensorsFunction.h	/^  VoltageIndicatorClass()$/;"	f	class:VoltageIndicatorClass
+VoltageIndicatorClass	.\Inc\SensorsFunction.h	/^class VoltageIndicatorClass$/;"	c
 VoltageRange	.\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h	/^  uint32_t VoltageRange;\/*!< The device voltage range which defines the erase parallelism$/;"	m	struct:__anon232
 WPR	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h	/^  __IO uint32_t WPR;     \/*!< RTC write protection register,                            Address offset: 0x24 *\/$/;"	m	struct:__anon27
 WRITE_REG	.\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h	236;"	d
@@ -26139,7 +26141,7 @@ arm_rfft_instance_q15	.\Drivers\CMSIS\Include\arm_math.h	/^  } arm_rfft_instance
 arm_rfft_instance_q31	.\Drivers\CMSIS\Include\arm_math.h	/^  } arm_rfft_instance_q31;$/;"	t	typeref:struct:__anon73
 arm_sqrt_f32	.\Drivers\CMSIS\Include\arm_math.h	/^  static __INLINE arm_status arm_sqrt_f32($/;"	f
 arm_status	.\Drivers\CMSIS\Include\arm_math.h	/^  } arm_status;$/;"	t	typeref:enum:__anon43
-assert_failed	.\src\main.cpp	/^void assert_failed(uint8_t *file, uint32_t line)$/;"	f
+assert_failed	src\main.cpp	/^void assert_failed(uint8_t *file, uint32_t line)$/;"	f
 assert_param	.\Inc\stm32f4xx_hal_conf.h	437;"	d
 assert_param	.\Inc\stm32f4xx_hal_conf.h	441;"	d
 b	.\Drivers\CMSIS\Include\core_cm0.h	/^  } b;                                   \/*!< Structure used for bit  access *\/$/;"	m	union:__anon105	typeref:struct:__anon105::__anon106
@@ -26286,9 +26288,9 @@ crQUEUE_SEND_FROM_ISR	.\Middlewares\Third_Party\FreeRTOS\Source\include\croutine
 crSET_STATE0	.\Middlewares\Third_Party\FreeRTOS\Source\include\croutine.h	283;"	d
 crSET_STATE1	.\Middlewares\Third_Party\FreeRTOS\Source\include\croutine.h	284;"	d
 crSTART	.\Middlewares\Third_Party\FreeRTOS\Source\include\croutine.h	246;"	d
-cs_reset	Inc\SensorsFunction.h	7;"	d
-cs_set	Inc\SensorsFunction.h	6;"	d
-cs_strob	Inc\SensorsFunction.h	8;"	d
+cs_reset	.\Inc\SensorsFunction.h	7;"	d
+cs_set	.\Inc\SensorsFunction.h	6;"	d
+cs_strob	.\Inc\SensorsFunction.h	8;"	d
 currentIndex	.\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c	/^  uint32_t currentIndex;$/;"	m	struct:os_pool_cb	file:
 currentIndex	.\src\CubeMX_Middlewares\cmsis_os.c	/^  uint32_t currentIndex;$/;"	m	struct:os_pool_cb	file:
 def	.\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h	/^  } def;                               \/\/\/< event definition$/;"	m	struct:__anon288	typeref:union:__anon288::__anon290
@@ -26436,7 +26438,7 @@ listTEST_LIST_INTEGRITY	.\Middlewares\Third_Party\FreeRTOS\Source\include\list.h
 listTEST_LIST_ITEM_INTEGRITY	.\Middlewares\Third_Party\FreeRTOS\Source\include\list.h	156;"	d
 listTEST_LIST_ITEM_INTEGRITY	.\Middlewares\Third_Party\FreeRTOS\Source\include\list.h	173;"	d
 mail_id	.\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h	/^    osMailQId             mail_id;     \/\/\/< mail id obtained by \\ref osMailCreate$/;"	m	union:__anon288::__anon290
-main	.\src\main.cpp	/^extern "C" int main(void)$/;"	f
+main	src\main.cpp	/^extern "C" int main(void)$/;"	f
 makeCmsisPriority	.\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c	/^static osPriority makeCmsisPriority (unsigned portBASE_TYPE fpriority)$/;"	f	file:
 makeCmsisPriority	.\src\CubeMX_Middlewares\cmsis_os.c	/^static osPriority makeCmsisPriority (unsigned portBASE_TYPE fpriority)$/;"	f	file:
 makeFreeRtosPriority	.\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c	/^static unsigned portBASE_TYPE makeFreeRtosPriority (osPriority priority)$/;"	f	file:

@@ -52,7 +52,7 @@
 #ifdef __cplusplus
  extern "C" {
 #endif
-
+//test
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
@@ -68,6 +68,7 @@ extern I2C_HandleTypeDef hi2c1;
 
 void MX_I2C1_Init(void);
 
+//test2
 /* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */
@@ -85,4 +86,5 @@ void MX_I2C1_Init(void);
   * @}
   */
 
+//test3
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -16,3 +16,13 @@ extern SPI_HandleTypeDef hspi3;
           cs_strob();
           osDelay(500);
   }
+
+void VoltageIndicatorClass::ShowNextLevel()
+{
+  CurrentLevel++;
+	if(CurrentLevel > 11)
+	  CurrentLevel = 0;
+  ShowLevel(CurrentLevel);
+}
+
+

@@ -58,6 +58,7 @@
 #include "usart.h"
 #include "gpio.h"
 
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -109,9 +110,9 @@ extern "C" int main(void)
   /* USER CODE END Init */
   /* Configure the system clock */
   SystemClock_Config();
+  //Test comment
   /* USER CODE BEGIN SysInit */
   /* USER CODE END SysInit */
-
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
@@ -125,21 +126,18 @@ extern "C" int main(void)
   MX_ADC1_Init();
   MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
-
   /* USER CODE END 2 */
-
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
-
   /* Start scheduler */
   osKernelStart();
   /* We should never get here as control is now taken by the scheduler */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
+	  //Test
     /* USER CODE BEGIN 3 */
  
 

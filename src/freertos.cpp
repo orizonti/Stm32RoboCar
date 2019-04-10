@@ -67,12 +67,9 @@
 //   uint8_t Data[12];
 //   uint8_t Data2[12];
 
-
 VoltageIndicatorClass VoltageIndicator;
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi3;
-
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -248,20 +245,7 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_SensorMonitorFunction */
 void SensorMonitorFunction(void const * argument)
 {
- //Data2[0] = 0x0;    Data[0] = 0x0;
- //Data2[1] = 0x0;    Data[1] = 0x1;
- //Data2[2] = 0x0;    Data[2] = 0x3;
- //Data2[3] = 0x0;    Data[3] = 0x7;
- //Data2[4] = 0x0;    Data[4] = 0xF;
- //Data2[5] = 0x0;    Data[5] = 0x1F;
- //Data2[6] = 0x0;    Data[6] = 0x3F;
- //Data2[7] = 0x0;    Data[7] = 0x7F;
- //Data2[8] = 0x0;    Data[8] = 0xFF;
- //Data2[9] = 0x8;    Data[9] = 0xFF;
- //Data2[10] = 0xC;   Data[10] = 0xFF;
- //Data2[11] = 0xFF;  Data[11] = 0xFF;
 
- uint8_t Counter = 0;
   /* USER CODE BEGIN SensorMonitorFunction */
 
  //  AccelData = malloc(sizeof(AccelDataStruct));
@@ -279,12 +263,7 @@ void SensorMonitorFunction(void const * argument)
  //   memcpy(AccelerometerData + 6,AccelData + 6,6);
  //   memcpy(AccelerometerData + 12,GyroData + 6,6);
  //---------------------------------------------------------
-          Counter++;
-                if(Counter > 11)
-                {
-                  Counter = 0;
-                }
-          VoltageIndicator.ShowLevel(Counter);
+ VoltageIndicator.ShowNextLevel();
  //---------------------------------------------------------
  //   osMessagePut(AccelStateQueueHandle,(uint32_t)AccelerometerData,5);
   }
