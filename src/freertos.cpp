@@ -49,27 +49,33 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */     
+#include "transfer_data_type.h"
+#include "SensorsFunction.h"
+#include "usart.h"
+#include "gpio.h"
+#include "spi.h"
+#include "MPU9250.h"
+#include "cstring"
+#include "cstdlib"
+/* USER CODE END Includes */
+
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
 #include "cmsis_os.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */     
-#include "usart.h"
-#include "gpio.h"
-#include "spi.h"
-#include "SensorsFunction.h"
-/* USER CODE END Includes */
-
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 //   uint8_t Data[12];
 //   uint8_t Data2[12];
 
 VoltageIndicatorClass VoltageIndicator;
+VoltageIndicatorClass* VoltageIndicator2;
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi3;
+extern char MESSAGE[50];
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -79,87 +85,105 @@ extern SPI_HandleTypeDef hspi3;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-//AccelDataStruct* AccelData;
-//GyroDataStruct*  GyroData;
+AccelDataStruct* AccelData;
+GyroDataStruct*  GyroData;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 
 
-
- typedef struct 
- {
-   GPIO_PinState Line1;
-   GPIO_PinState Line2;
-   GPIO_PinState Line3;
-   GPIO_PinState Line4;
- } STEP_COMMAND;
-
+typedef struct 
+{
+  GPIO_PinState Line1;
+  GPIO_PinState Line2;
+  GPIO_PinState Line3;
+  GPIO_PinState Line4;
+} STEP_COMMAND;
 
 
 
- void TakeStep(STEP_COMMAND* COMMAND)
- {
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_0,COMMAND->Line1);
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,COMMAND->Line2);
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_4,COMMAND->Line3);
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_6,COMMAND->Line4);
 
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_1,COMMAND->Line1);
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,COMMAND->Line2);
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,COMMAND->Line3);
-   HAL_GPIO_WritePin(GPIOD,GPIO_PIN_7,COMMAND->Line4);
+void TakeStep(STEP_COMMAND* COMMAND)
+{
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_0,COMMAND->Line1);
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,COMMAND->Line2);
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_4,COMMAND->Line3);
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_6,COMMAND->Line4);
 
-   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_0,COMMAND->Line1);
-   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_1,COMMAND->Line2);
-   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_2,COMMAND->Line3);
-   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_3,COMMAND->Line4);
- }
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_1,COMMAND->Line1);
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,COMMAND->Line2);
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,COMMAND->Line3);
+  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_7,COMMAND->Line4);
 
- void SetCommand(int in1,int in2,int in3,int in4,STEP_COMMAND* COMMAND)
- {
-  COMMAND->Line1 = GPIO_PIN_SET; 
-  COMMAND->Line2 = GPIO_PIN_SET; 
-  COMMAND->Line3 = GPIO_PIN_SET; 
-  COMMAND->Line4 = GPIO_PIN_SET; 
-  if(in1 == 0)
-  COMMAND->Line1 = GPIO_PIN_RESET; 
-  if(in2 == 0)
-  COMMAND->Line2 = GPIO_PIN_RESET; 
-  if(in3 == 0)
-  COMMAND->Line3 = GPIO_PIN_RESET; 
-  if(in4 == 0)
-  COMMAND->Line4 = GPIO_PIN_RESET; 
- }
-/* USER CODE END Variables */
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_0,COMMAND->Line1);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_1,COMMAND->Line2);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_2,COMMAND->Line3);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_3,COMMAND->Line4);
+}
+
+void SetCommand(int in1,int in2,int in3,int in4,STEP_COMMAND* COMMAND)
+{
+ COMMAND->Line1 = GPIO_PIN_SET; 
+ COMMAND->Line2 = GPIO_PIN_SET; 
+ COMMAND->Line3 = GPIO_PIN_SET; 
+ COMMAND->Line4 = GPIO_PIN_SET; 
+ if(in1 == 0)
+ COMMAND->Line1 = GPIO_PIN_RESET; 
+ if(in2 == 0)
+ COMMAND->Line2 = GPIO_PIN_RESET; 
+ if(in3 == 0)
+ COMMAND->Line3 = GPIO_PIN_RESET; 
+ if(in4 == 0)
+ COMMAND->Line4 = GPIO_PIN_RESET; 
+}
+
+ 
+
+  //osPoolDef(AccelDataPool, 20, AccelerometerDataStruct);                    // Define memory pool
+  //#define osMessageQDef(name, queue_sz, type)   
+
+  //QUEUES TO CONTROL MOTORS
+  osMessageQDef(StepMotorCommandQueue, 8, StepMotorControlStruct);
+  osMessageQDef(DCMotorCommandQueue, 8, DC_MotorControlStruct);
+
+	osMessageQId DCMotorCommandQueueHandle;  //HANDLES TO INTERRACT TO QUEUES
+	osMessageQId StepMotorCommandQueueHandle;
+
+  //QUEUES TO SEND BLOCKS STATE
+  osMessageQDef(AccelStateQueue, 8, AccelerometerDataStruct);
+  osMessageQDef(StepMotorStateQueue, 8, StepMotorControlStruct);
+  osMessageQDef(DCMotorStateQueue, 8, DC_MotorControlStruct);
+  osMessageQDef(RangersStateQueue, 8, RangeControlStruct);
+  osMessageQDef(BatteryStateQueue, 8, BatteryControlStruct);
+
+	osMessageQId DCMotorStateQueueHandle;  //HANDLES TO INTERRACT TO QUEUES
+	osMessageQId StepMotorStateQueueHandle;
+	osMessageQId AccelStateQueueHandle;
+	osMessageQId RangersStateQueueHandle;
+	osMessageQId BatteryStateQueueHandle;
+
+osPoolId  AccelDataPoolHandle;  // MEMORY POOL ID FOR QUEUES, IS'T USED YET
+
 osThreadId SensorMonitorinHandle;
 osThreadId Uart_Control_TaHandle;
 osThreadId DC_Motor_ContHandle;
 osThreadId StepMotor_ConHandle;
 
-osMessageQId DCMotorCommandQueueHandle;
-osMessageQId StepMotorCommandQueueHandle;
-osMessageQId AccelCommandQueueHandle;
 
-osMessageQId DCMotorStateQueueHandle;
-osMessageQId StepMotorStateQueueHandle;
-osMessageQId AccelStateQueueHandle;
-
-osMessageQId RangersStateQueueHandle;
-osMessageQId BatteryStateQueueHandle;
+/* USER CODE END Variables */
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
    
-/* USER CODE END FunctionPrototypes */
-
 void SensorMonitorFunction(void const * argument);
 void UARTTransferFunction(void const * argument);
 void DC_Motor_Function(void const * argument);
 void StepMotorFunc(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+/* USER CODE END FunctionPrototypes */
+
 
 /**
   * @brief  FreeRTOS initialization
@@ -168,6 +192,20 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
+  /* definition and creation of SensorMonitorin */
+  osThreadDef(SensorMonitorin, SensorMonitorFunction, osPriorityNormal, 0, 512);
+  SensorMonitorinHandle = osThreadCreate(osThread(SensorMonitorin), NULL);
+
+  /* definition and creation of Uart_Control_Ta */
+  osThreadDef(Uart_Control_Ta, UARTTransferFunction, osPriorityIdle, 0, 512);
+  Uart_Control_TaHandle = osThreadCreate(osThread(Uart_Control_Ta), NULL);
+
+  //osThreadDef(DC_Motor_Cont, DC_Motor_Function, osPriorityIdle, 0, 256);
+  //DC_Motor_ContHandle = osThreadCreate(osThread(DC_Motor_Cont), NULL);
+
+  ///* definition and creation of StepMotor_Con */
+  //osThreadDef(StepMotor_Con, StepMotorFunc, osPriorityIdle, 0, 256);
+  //StepMotor_ConHandle = osThreadCreate(osThread(StepMotor_Con), NULL);
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -183,21 +221,8 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the thread(s) */
-  /* definition and creation of SensorMonitorin */
-  osThreadDef(SensorMonitorin, SensorMonitorFunction, osPriorityNormal, 0, 128);
-  SensorMonitorinHandle = osThreadCreate(osThread(SensorMonitorin), NULL);
-
-  /* definition and creation of Uart_Control_Ta */
-  osThreadDef(Uart_Control_Ta, UARTTransferFunction, osPriorityIdle, 0, 128);
-  Uart_Control_TaHandle = osThreadCreate(osThread(Uart_Control_Ta), NULL);
 
   /* definition and creation of DC_Motor_Cont */
-  osThreadDef(DC_Motor_Cont, DC_Motor_Function, osPriorityIdle, 0, 128);
-  DC_Motor_ContHandle = osThreadCreate(osThread(DC_Motor_Cont), NULL);
-
-  /* definition and creation of StepMotor_Con */
-  osThreadDef(StepMotor_Con, StepMotorFunc, osPriorityIdle, 0, 128);
-  StepMotor_ConHandle = osThreadCreate(osThread(StepMotor_Con), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -205,34 +230,20 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the queue(s) */
   /* definition and creation of StepCommandQueue */
-  //COMMAND TO MC DATA QUEUES
-  osMessageQDef(StepMotorCommandQueue, 18, uint16_t);
-  StepMotorCommandQueueHandle = osMessageCreate(osMessageQ(StepMotorCommandQueue), NULL);
-
-  osMessageQDef(DCMotorCommandQueue, 14, uint16_t);
-  DCMotorCommandQueueHandle = osMessageCreate(osMessageQ(DCMotorCommandQueue), NULL);
-
-  osMessageQDef(AccelCommandQueue, 18, uint16_t);
-  AccelCommandQueueHandle = osMessageCreate(osMessageQ(AccelCommandQueue), NULL);
 
 
-  //STATE FROM MC DATA QUEUES
-  osMessageQDef(StepMotorStateQueue, 18, uint16_t);
-  StepMotorStateQueueHandle = osMessageCreate(osMessageQ(StepMotorStateQueue), NULL);
-
-  osMessageQDef(DCMotorStateQueue, 14, uint16_t);
-  DCMotorStateQueueHandle = osMessageCreate(osMessageQ(DCMotorStateQueue), NULL);
-
-  osMessageQDef(AccelStateQueue, 18, uint16_t);
-  AccelStateQueueHandle = osMessageCreate(osMessageQ(AccelStateQueue), NULL);
-
-  osMessageQDef(RangersStateQueue, 10, uint16_t);
-  RangersStateQueueHandle = osMessageCreate(osMessageQ(RangersStateQueue), NULL);
-
-  osMessageQDef(BatteryStateQueue, 10, uint16_t);
-  BatteryStateQueueHandle = osMessageCreate(osMessageQ(BatteryStateQueue), NULL);
   /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
+  //STATE FROM MC DATA QUEUES
+  //AccelDataPoolHandle = osPoolCreate(osPool(AccelDataPool));                 // create memory pool
+  AccelStateQueueHandle = osMessageCreate(osMessageQ(AccelStateQueue), NULL);
+  StepMotorStateQueueHandle = osMessageCreate(osMessageQ(StepMotorStateQueue), NULL);
+  DCMotorStateQueueHandle = osMessageCreate(osMessageQ(DCMotorStateQueue), NULL);
+  RangersStateQueueHandle = osMessageCreate(osMessageQ(RangersStateQueue), NULL);
+  BatteryStateQueueHandle = osMessageCreate(osMessageQ(BatteryStateQueue), NULL);
+
+  //COMMAND FROM USER QUEUES
+  StepMotorCommandQueueHandle = osMessageCreate(osMessageQ(StepMotorCommandQueue), NULL);
+  DCMotorCommandQueueHandle = osMessageCreate(osMessageQ(DCMotorCommandQueue), NULL);
   /* USER CODE END RTOS_QUEUES */
 }
 
@@ -245,31 +256,39 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_SensorMonitorFunction */
 void SensorMonitorFunction(void const * argument)
 {
-
   /* USER CODE BEGIN SensorMonitorFunction */
 
- //  AccelData = malloc(sizeof(AccelDataStruct));
- //  GyroData =  malloc(sizeof(GyroDataStruct));
- //  AccelerometerStruct* AccelerometerData = malloc(sizeof(AccelerometerStruct));
+   AccelData = new AccelDataStruct;
+   GyroData =  new GyroDataStruct;
+      AccelerometerDataStruct* AccelDataMessage = new AccelerometerDataStruct;
 
- //     ReadDeviceID();
- //     osDelay(300);
- //     MPU_init();
- // /* Infinite loop */
+      ReadDeviceID();
+      osDelay(300);
+      MPU_init();
+  /* Infinite loop */
   for(;;)
   {
- //   MPU_get_accel(AccelData);
- //   MPU_get_gyro(GyroData);
- //   memcpy(AccelerometerData + 6,AccelData + 6,6);
- //   memcpy(AccelerometerData + 12,GyroData + 6,6);
+  osDelay(100);  
+
+    MPU_get_accel(AccelData);
+    MPU_get_gyro(GyroData);
+    memcpy((uint8_t*)AccelDataMessage + 6,(uint8_t*)AccelData + 6,6);
+    memcpy((uint8_t*)AccelDataMessage + 12,(uint8_t*)GyroData + 6,6);
+
+
+      AccelDataMessage->HEADER.HEADER1 = 0xF1;
+      AccelDataMessage->HEADER.HEADER2 = 0xD2;
+      AccelDataMessage->HEADER.SIZE_UNIT = 6+12;
+        HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
  //---------------------------------------------------------
  VoltageIndicator.ShowNextLevel();
  //---------------------------------------------------------
- //   osMessagePut(AccelStateQueueHandle,(uint32_t)AccelerometerData,5);
+    osMessagePut(AccelStateQueueHandle, (uint32_t)AccelDataMessage, osWaitForever);  // Send Message
   }
- // free(AccelData);
- // free(GyroData);
- // free(AccelerometerData);
+  delete AccelData;
+  delete GyroData;
+  //delete AccelDataMessage;
+
   /* USER CODE END SensorMonitorFunction */
 }
 
@@ -284,124 +303,140 @@ void UARTTransferFunction(void const * argument)
 {
   /* USER CODE BEGIN UARTTransferFunction */
   /* Infinite loop */
-             //uint8_t DataRec[30];
-             //uint16_t MESSAGE_SIZE = 0;
+  uint8_t SendData[20];
 
-
-    //HAL_UART_Receive_IT(&huart1,DataRec,3);
-    //osDelay(10);
-
-   // MotorControl StepMotorCommand;
-   //              StepMotorCommand.NumberMotor = 0;
-   //              StepMotorCommand.Speed = 0;
-   //              StepMotorCommand.Angle = 0;
-   //              StepMotorCommand.Direction = 1;
-   // MotorControl* MotorRecCommand;
-
-
-    int count = 0;
+   AccelerometerDataStruct* Data;
   /* Infinite loop */
   for(;;)
   {
-   //   osEvent event = osMessageGet(AccelStateQueueHandle,0);
-   //   if(event.status == osEventMessage)
-   //   {
-   //     HEADER_STRUCT* Data = event.value.p;
-   //     HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
-   //     osDelay(20);
-   //   }
-   //           event = osMessageGet(DCMotorStateQueueHandle,0);
-   //   if(event.status == osEventMessage)
-   //   {
-   //     HEADER_STRUCT* Data = event.value.p;
-   //     HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
-   //     osDelay(20);
-   //   }
-   //           event = osMessageGet(StepMotorStateQueueHandle,0);
-   //   if(event.status == osEventMessage)
-   //   {
-   //     HEADER_STRUCT* Data = event.value.p;
-   //     HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
-   //     osDelay(20);
-   //   }
-   //           event = osMessageGet(RangeStateDataQueueHandle,0);
-   //   if(event.status == osEventMessage)
-   //   {
-   //     HEADER_STRUCT* Data = event.value.p;
-   //     HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
-   //     osDelay(20);
-   //   }
-   //           event = osMessageGet(BatteryStateQueueHandle,0);
-   //   if(event.status == osEventMessage)
-   //   {
-   //     HEADER_STRUCT* Data = event.value.p;
-   //     HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
-   //     osDelay(20);
+
+        osEvent event = osMessageGet(AccelStateQueueHandle,osWaitForever);
+		//sprintf(MESSAGE,"GET DATA status - %02X \r\n",event.status);
+		//HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
+    //    osDelay(10);
+
+      if(event.status == osEventMessage)
+      {
+          Data = (AccelerometerDataStruct*)event.value.p;
+
+          if(Data->HEADER.SIZE_UNIT == 18)
+          {
+            memcpy(SendData,(uint8_t*)Data,18);
+
+          sprintf(MESSAGE,"ACCEL_X = %d ACCEL_Y  = %d ACCEL_Z = %d \r\n",Data->AccelX,
+                                                                        Data->AccelY,
+                                                                        Data->AccelZ);
+
+          HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
+          osDelay(10);
+
+          sprintf(MESSAGE,"HEADER - %02X SIZE - %d\r\n",Data->HEADER.HEADER1,Data->HEADER.SIZE_UNIT);
+          HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
+          osDelay(10);
+
+          //HAL_UART_Transmit_IT(&huart1,SendData,18);
+          }
+          //osPoolFree(AccelDataPoolHandle, Data);                  // free memory allocated for message
       }
 
+    //          event = osMessageGet(DCMotorStateQueueHandle,0);
+    //  if(event.status == osEventMessage)
+    //  {
+    //    HEADER_STRUCT* Data = (HEADER_STRUCT*)event.value.p;
+    //    HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
+    //    osDelay(20);
+    //  }
 
-          //sprintf(MESSAGE,"ACCEL X = %d Y = %d Z = %d \r\n",Data->Accel_X,Data->Accel_Y,Data->Accel_Z);
-          //HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
+    //          event = osMessageGet(StepMotorStateQueueHandle,0);
+    //  if(event.status == osEventMessage)
+    //  {
+    //    HEADER_STRUCT* Data = (HEADER_STRUCT*)event.value.p;
+    //    HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
+    //    osDelay(20);
+    //  }
 
-  // READ COMMAND FROM UART TO CONTROL STEP MOTOR
-  //  if(huart1.RxXferCount == 0)
-  //  {
-  //            if(DataRec[0] == 0xA1 && DataRec[1] == 0xF1)
-  //            {
-  //              MESSAGE_SIZE = DataRec[2];
-  //              DataRec[0] = 0;
-  //              DataRec[1] = 0;
-  //              HAL_UART_Receive_IT(&huart1,DataRec,MESSAGE_SIZE);
-  //              osDelay(10);
-  //             //     sprintf(MESSAGE+3,"MC WAIT BYTES %d",MESSAGE_SIZE);
-  //             //     MESSAGE[2] = strlen(MESSAGE+3);
-  //             //     HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
-  //             // osDelay(10);
-  //            }
+    //          event = osMessageGet(RangersStateQueueHandle,0);
+    //  if(event.status == osEventMessage)
+    //  {
+    //    HEADER_STRUCT* Data = (HEADER_STRUCT*)event.value.p;
+    //    HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
+    //    osDelay(20);
+    //  }
 
-  //            if(MESSAGE_SIZE != 0)
-  //            {
-
-  //              if(DataRec[0] == 0x01)
-  //              {
-  //                  sprintf(MESSAGE+3,"recieved - %s",DataRec);
-  //                  MESSAGE[2] = strlen(MESSAGE+3);
-  //                  HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
-  //                  osDelay(10);
-  //              }
-
-  //                  if(DataRec[0] == 0xD1)
-  //                  {
-  //                      MotorRecCommand = (MotorControl*)(DataRec+1);
-  //                      StepMotorCommand.NumberMotor = MotorRecCommand->NumberMotor;
-  //                      StepMotorCommand.Direction = MotorRecCommand->Direction;
-  //                      StepMotorCommand.Speed = MotorRecCommand->Speed;
-  //                      StepMotorCommand.Angle = MotorRecCommand->Angle;
-  //                          osMessagePut(StepCommandQueueHandle,&StepMotorCommand,5);
-  //                      sprintf(MESSAGE+3,"MOTOR COMMAND - %d %d %d %d",StepMotorCommand.NumberMotor,
-  //                                                                      StepMotorCommand.Direction,
-  //                                                                      StepMotorCommand.Angle,
-  //                                                                      StepMotorCommand.Speed);
-  //                      MESSAGE[2] = strlen(MESSAGE+3);
-  //                      HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
-  //                      osDelay(40);
-  //                  }
-
-  //              if(DataRec[0] == 0xD2)
-  //              {
-  //                  sprintf(MESSAGE+3,"COMMAND TO DC MOTOR GET");
-  //                  MESSAGE[2] = strlen(MESSAGE+3);
-  //                  HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
-  //                  osDelay(10);
+    //          event = osMessageGet(BatteryStateQueueHandle,0);
+    //  if(event.status == osEventMessage)
+    //  {
+    //    HEADER_STRUCT* Data = (HEADER_STRUCT*)event.value.p;
+    //    HAL_UART_Transmit_IT(&huart1,(uint8_t*)(Data),Data->SIZE_UNIT);
+    //    osDelay(20);
+    //  }
 
 
-  //              }
+  }
+        //sprintf(MESSAGE,"ACCEL X = %d Y = %d Z = %d \r\n",Data->Accel_X,Data->Accel_Y,Data->Accel_Z);
+        //HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
 
-  //                  MESSAGE_SIZE = 0;
-  //              HAL_UART_Receive_IT(&huart1,DataRec,3);
-  //            }
-  //==========================================================================================
+  //READ COMMAND FROM UART TO CONTROL STEP MOTOR
+   //if(huart1.RxXferCount == 0)
+   //{
+   //          if(DataRec[0] == 0xA1 && DataRec[1] == 0xF1)
+   //          {
+   //            MESSAGE_SIZE = DataRec[2];
+   //            DataRec[0] = 0;
+   //            DataRec[1] = 0;
+   //            HAL_UART_Receive_IT(&huart1,DataRec,MESSAGE_SIZE);
+   //            osDelay(10);
+   //           //     sprintf(MESSAGE+3,"MC WAIT BYTES %d",MESSAGE_SIZE);
+   //           //     MESSAGE[2] = strlen(MESSAGE+3);
+   //           //     HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
+   //           // osDelay(10);
+   //          }
+
+   //          if(MESSAGE_SIZE != 0)
+   //          {
+
+   //            if(DataRec[0] == 0x01)
+   //            {
+   //                sprintf(MESSAGE+3,"recieved - %s",DataRec);
+   //                MESSAGE[2] = strlen(MESSAGE+3);
+   //                HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
+   //                osDelay(10);
+   //            }
+
+   //                if(DataRec[0] == 0xD1)
+   //                {
+   //                    MotorRecCommand = (MotorControl*)(DataRec+1);
+   //                    StepMotorCommand.NumberMotor = MotorRecCommand->NumberMotor;
+   //                    StepMotorCommand.Direction = MotorRecCommand->Direction;
+   //                    StepMotorCommand.Speed = MotorRecCommand->Speed;
+   //                    StepMotorCommand.Angle = MotorRecCommand->Angle;
+   //                        osMessagePut(StepCommandQueueHandle,&StepMotorCommand,5);
+   //                    sprintf(MESSAGE+3,"MOTOR COMMAND - %d %d %d %d",StepMotorCommand.NumberMotor,
+   //                                                                    StepMotorCommand.Direction,
+   //                                                                    StepMotorCommand.Angle,
+   //                                                                    StepMotorCommand.Speed);
+   //                    MESSAGE[2] = strlen(MESSAGE+3);
+   //                    HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
+   //                    osDelay(40);
+   //                }
+
+   //            if(DataRec[0] == 0xD2)
+   //            {
+   //                sprintf(MESSAGE+3,"COMMAND TO DC MOTOR GET");
+   //                MESSAGE[2] = strlen(MESSAGE+3);
+   //                HAL_UART_Transmit_IT(&huart1,(uint8_t*)MESSAGE,strlen(MESSAGE));
+   //                osDelay(10);
+
+
+   //            }
+
+   //                MESSAGE_SIZE = 0;
+   //            HAL_UART_Receive_IT(&huart1,DataRec,3);
+   //          }
+   //  }
+  //=========================================================================================
   /* USER CODE END UARTTransferFunction */
+
 }
 
 /* USER CODE BEGIN Header_DC_Motor_Function */

@@ -38,4 +38,5 @@ class VoltageIndicatorClass
   void ShowLevel(uint8_t Level);
   void ShowNextLevel();
 };
+
 #endif

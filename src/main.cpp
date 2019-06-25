@@ -58,13 +58,13 @@
 #include "usart.h"
 #include "gpio.h"
 
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+char MESSAGE[50];
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -88,7 +88,6 @@
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -127,17 +126,18 @@ extern "C" int main(void)
   MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
+
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
   /* Start scheduler */
   osKernelStart();
   /* We should never get here as control is now taken by the scheduler */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	  //Test
     /* USER CODE BEGIN 3 */
  
 
@@ -151,8 +151,11 @@ extern "C" int main(void)
   */
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  //RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  //RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  RCC_OscInitTypeDef RCC_OscInitStruct;
+  RCC_ClkInitTypeDef RCC_ClkInitStruct;
 
   /**Configure the main internal regulator output voltage 
   */

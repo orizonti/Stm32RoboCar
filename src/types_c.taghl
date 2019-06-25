@@ -1,0 +1,247 @@
+syn keyword CTagsGlobalVariable hi2c1 AccelStateQueueHandle
+syn keyword CTagsGlobalVariable htim7 StepMotorStateQueueHandle pxCurrentTCB SystemCoreClock AccelCommandQueueHandle BatteryStateQueueHandle VoltageIndicator2 htim12 VoltageIndicator hspi1 SensorMonitorinHandle RangersStateQueueHandle hspi3 MPU_ADDRESS huart1 StepMotorCommandQueueHandle htim4 MESSAGE hadc1 AccelDataPoolHandle StepMotor_ConHandle GyroData DC_Motor_ContHandle htim1 AccelData DCMotorCommandQueueHandle Uart_Control_TaHandle xQueueRegistry htim3 DCMotorStateQueueHandle pxCurrentCoRoutine htim6
+syn keyword CTagsConstant APBPrescTable AHBPrescTable
+syn keyword CTagsFunction osSemaphoreCreate vTaskSwitchContext osThreadSetPriority vPortValidateInterruptPriority HAL_TIM_Base_MspInit xTimerGetTimerDaemonTaskHandle osSystickHandler osTimerStart ulTaskNotifyTake xQueueCreateCountingSemaphoreStatic xTaskGenericNotify osPoolFree HAL_TIM_PeriodElapsedCallback MX_I2C1_Init osThreadList vTaskExitCritical vListInsertEnd osMutexCreate
+syn keyword CTagsFunction xEventGroupCreateStatic osThreadYield pxPortInitialiseStack vTaskAllocateMPURegions xQueueCreateMutex xTaskRemoveFromUnorderedEventList xTimerCreate xPortGetMinimumEverFreeHeapSize xEventGroupSync xTimerCreateTimerTask vTaskNotifyGiveFromISR xQueueIsQueueEmptyFromISR HAL_SuspendTick osPoolCreate vTaskSetTimeOutState NMI_Handler xTaskGetCurrentTaskHandle MX_FREERTOS_Init osMailCreate osThreadResume vTaskGetRunTimeStats xQueuePeekFromISR xTaskNotifyWait vEventGroupSetBitsCallback
+syn keyword CTagsFunction pvTaskGetThreadLocalStoragePointer xEventGroupWaitBits xCoRoutineRemoveFromEventList osThreadIsSuspended osSignalWait uxTaskGetTaskNumber osSemaphoreDelete osThreadTerminate vPortEnterCritical vTaskStepTick vTaskSuspend HAL_I2C_MspDeInit osRecursiveMutexWait uxTaskGetSystemState vTaskPlaceOnUnorderedEventList vTaskSuspendAll xTimerCreateStatic uxListRemove osMailGet uxQueueMessagesWaiting vTaskPrioritySet osTimerCreate vListInitialiseItem HAL_SPI_MspInit osDelayUntil
+syn keyword CTagsFunction vPortEndScheduler xQueueCRReceiveFromISR xPortPendSVHandler pcTimerGetName HAL_InitTick xQueueTakeMutexRecursive osTimerStop main UsageFault_Handler vTaskSetTaskNumber osMailFree SPI1_IRQHandler vPortInitialiseBlocks HAL_SPI_MspDeInit xQueueGenericSend vTaskSetThreadLocalStoragePointer xTaskGetTickCountFromISR SystemInit I2C_ReadBufferMem MX_ADC1_Init xEventGroupClearBitsFromISR xTimerPendFunctionCallFromISR MPU_get_gyro HAL_TIM_PWM_MspInit pvPortMalloc
+syn keyword CTagsFunction vTaskPlaceOnEventListRestricted xQueueCRSendFromISR pvTimerGetTimerID osThreadGetState Error_Handler pvTaskIncrementMutexHeldCount SystemCoreClockUpdate ucQueueGetQueueType uxTaskResetEventItemValue vTaskPlaceOnEventList xQueueRemoveFromSet vEventGroupDelete vTaskSetApplicationTaskTag osSemaphoreRelease MX_SPI3_Init vListInsert xPortSysTickHandler uxTaskPriorityGetFromISR xQueueGenericReceive osPoolCAlloc xQueueIsQueueFullFromISR osMessagePut vTaskDelete xTaskPriorityDisinherit
+syn keyword CTagsFunction DebugMon_Handler osKernelStart HAL_TIM_IC_MspDeInit osDelay USART1_IRQHandler xEventGroupSetBits xTaskCallApplicationTaskHook HAL_TIM_MspPostInit vTaskPriorityInherit xQueueGenericSendFromISR osRecursiveMutexRelease HAL_TIM_PWM_MspDeInit vQueueDelete xEventGroupClearBits xPortStartScheduler xQueueGenericCreate osMessageAvailableSpace pcTaskGetName TIM1_UP_TIM10_IRQHandler xTaskAbortDelay vTaskMissedYield vCoRoutineAddToDelayedList osKernelRunning vPortFree
+syn keyword CTagsFunction vPortSuppressTicksAndSleep vTaskResume HAL_UART_MspInit osSemaphoreGetCount MX_TIM12_Init ShowNextLevel uxTaskGetStackHighWaterMark vEventGroupClearBitsCallback xQueueCRSend vTaskDelay vTaskStartScheduler xTaskGetIdleTaskHandle xTimerGetPeriod xPortGetFreeHeapSize pcQueueGetName xTaskIncrementTick uxTaskPriorityGet HAL_TIM_Base_MspDeInit ShowLevel TakeStep osMessageGet osThreadCreate uxQueueSpacesAvailable xEventGroupSetBitsFromISR xTimerIsTimerActive HAL_ResumeTick
+syn keyword CTagsFunction xQueueCreateMutexStatic MX_TIM7_Init osMessageDelete SystemClock_Config osSignalSet HAL_MspInit uxTaskGetNumberOfTasks xQueueGenericCreateStatic xTaskCreateRestricted vQueueAddToRegistry xQueueAddToSet xTaskGetTickCount vTaskDelayUntil vPortSetupTimerInterrupt osThreadGetPriority xQueueGiveFromISR vQueueSetQueueNumber xQueueReceiveFromISR DC_Motor_Function xQueueCreateCountingSemaphore xEventGroupCreate osMutexDelete xTaskGetHandle xTaskResumeAll vTaskGetInfo
+syn keyword CTagsFunction xTaskRemoveFromEventList osMutexRelease xQueueGiveMutexRecursive MX_USART1_UART_Init osThreadResumeAll xTaskGetApplicationTaskTag ReadDeviceID HAL_ADC_MspDeInit xQueueSelectFromSetFromISR xQueueCreateSet vTimerSetTimerID MX_TIM6_Init osMailCAlloc HAL_ADC_MspInit xTimerPendFunctionCall xQueueCRReceive xTaskGenericNotifyFromISR osAbortDelay osMailAlloc vTaskEndScheduler osMessageWaiting HAL_I2C_MspInit MPU_init vPortExitCritical xTaskResumeFromISR SystemInit_ExtMemCtl
+syn keyword CTagsFunction vQueueUnregisterQueue osMessagePeek osPoolAlloc vQueueWaitForMessageRestricted xTaskCreateStatic SPI3_IRQHandler xTimerGenericCommand eTaskConfirmSleepModeStatus osMutexWait vTaskEnterCritical MX_TIM3_Init xTaskCreate UARTTransferFunction HAL_UART_MspDeInit MX_GPIO_Init uxEventGroupGetNumber osMessageCreate osThreadSuspend uxQueueMessagesWaitingFromISR xCoRoutineCreate xEventGroupGetBitsFromISR xTaskNotifyStateClear osKernelSysTick HardFault_Handler osThreadGetId osTimerDelete
+syn keyword CTagsFunction MX_SPI1_Init MemManage_Handler xTaskGetSchedulerState xTimerGetExpiryTime xQueueGenericReset SensorMonitorFunction eTaskGetState vListInitialise osThreadSuspendAll assert_failed xQueueGetMutexHolder xTaskCheckForTimeOut xQueueSelectFromSet MX_TIM4_Init osMailPut vCoRoutineSchedule HAL_TIM_IC_MspInit I2C_WriteBufferMem osRecursiveMutexCreate uxQueueGetQueueNumber SetCommand StepMotorFunc vTaskList BusFault_Handler MPU_get_accel vPortSVCHandler osSemaphoreWait I2C1_EV_IRQHandler
+
+syn match CTagsFunction /\<VoltageIndicatorClass::ShowLevel\>/
+syn match CTagsFunction /\<VoltageIndicatorClass::ShowNextLevel\>/
+" Matches for file CubeMX_Middlewares\\heap_4.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/heap_4.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable pucAlignedHeap pxLink pvReturn pxBlock pxNewBlockLink pxIterator pxPreviousBlock xWantedSize uxAddress xTotalHeapSize size_t puc pxFirstFreeBlock
+	syn keyword CTagsStructure A_BLOCK_LINK
+	syn keyword CTagsMember xBlockSize pxNextFreeBlock
+	syn keyword CTagsGlobalVariable pxEnd xStart xMinimumEverFreeBytesRemaining xBlockAllocatedBit ucHeap xFreeBytesRemaining
+	syn keyword CTagsConstant xHeapStructSize
+	syn keyword CTagsFunction prvHeapInit prvInsertBlockIntoFreeList
+	syn keyword CTagsType BlockLink_t
+	syn keyword CTagsDefinedName heapMINIMUM_BLOCK_SIZE heapBITS_PER_BYTE MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+	
+	syn match CTagsMember /\<A_BLOCK_LINK::pxNextFreeBlock\>/
+	syn match CTagsMember /\<A_BLOCK_LINK::xBlockSize\>/
+endif
+" Matches for file freertos.cpp:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "freertos.cpp") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable COMMAND_SEQUENCE_FULL Direction COMMAND_SEQUENCE_FULL_BACK AccelData event Data DataRec count_sector COMMAND_SEQUENCE MESSAGE_SIZE count n
+	syn keyword CTagsStructure __anonec0368600108
+	syn keyword CTagsMember Line1 Line3 Line4 Line2
+	syn keyword CTagsFunction StepMotorFunc MX_FREERTOS_Init SensorMonitorFunction DC_Motor_Function UARTTransferFunction
+	syn keyword CTagsType STEP_COMMAND
+	
+	syn match CTagsMember /\<__anonec0368600108::Line1\>/
+	syn match CTagsMember /\<__anonec0368600108::Line2\>/
+	syn match CTagsMember /\<__anonec0368600108::Line3\>/
+	syn match CTagsMember /\<__anonec0368600108::Line4\>/
+endif
+" Matches for file CubeMX_Middlewares\\timers.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/timers.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable xLastTime xReturn ucStaticTimerQueueStorage xTimerListsWereSwitched xListWasEmpty xTimerIsInActiveList xMessage pxNewTimer xNextExpireTime xProcessTimerNow xResult xSize xTimeNow pxTimerTaskStackBuffer pxTemp xReloadTime pvReturn xStaticTimerQueue ulTimerTaskStackSize pxTimerTaskTCBBuffer pxCallback
+	syn keyword CTagsStructure tmrTimerParameters tmrTimerControl tmrCallbackParameters tmrTimerQueueMessage
+	syn keyword CTagsMember ulParameter2 xCallbackParameters pvTimerID uxAutoReload pvParameter1 xMessageID ucStaticallyAllocated pxTimer pxCallbackFunction xTimerParameters uxTimerNumber u xTimerListItem xMessageValue pcTimerName xTimerPeriodInTicks
+	syn keyword CTagsUnion __anon7341ce9a010a
+	syn keyword CTagsGlobalVariable pxCurrentTimerList xActiveTimerList2 xActiveTimerList1 xTimerQueue xTimerTaskHandle pxOverflowTimerList
+	syn keyword CTagsFunction prvGetNextExpireTime prvProcessExpiredTimer prvSwitchTimerLists prvProcessReceivedCommands prvInitialiseNewTimer prvTimerTask prvCheckForValidListAndQueue prvInsertTimerInActiveList prvProcessTimerOrBlockTask prvSampleTimeNow vApplicationGetTimerTaskMemory
+	syn keyword CTagsType Timer_t DaemonTaskMessage_t CallbackParameters_t xTIMER TimerParameter_t
+	syn keyword CTagsDefinedName tmrNO_DELAY MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+	
+	syn match CTagsMember /\<tmrCallbackParameters::pvParameter1\>/
+	syn match CTagsMember /\<tmrCallbackParameters::pxCallbackFunction\>/
+	syn match CTagsMember /\<tmrCallbackParameters::ulParameter2\>/
+	syn match CTagsMember /\<tmrTimerControl::pcTimerName\>/
+	syn match CTagsMember /\<tmrTimerControl::pvTimerID\>/
+	syn match CTagsMember /\<tmrTimerControl::pxCallbackFunction\>/
+	syn match CTagsMember /\<tmrTimerControl::ucStaticallyAllocated\>/
+	syn match CTagsMember /\<tmrTimerControl::uxAutoReload\>/
+	syn match CTagsMember /\<tmrTimerControl::uxTimerNumber\>/
+	syn match CTagsMember /\<tmrTimerControl::xTimerListItem\>/
+	syn match CTagsMember /\<tmrTimerControl::xTimerPeriodInTicks\>/
+	syn match CTagsMember /\<tmrTimerParameters::pxTimer\>/
+	syn match CTagsMember /\<tmrTimerParameters::xMessageValue\>/
+	syn match CTagsMember /\<tmrTimerQueueMessage::__anon7341ce9a010a::xCallbackParameters\>/
+	syn match CTagsMember /\<tmrTimerQueueMessage::__anon7341ce9a010a::xTimerParameters\>/
+	syn match CTagsMember /\<tmrTimerQueueMessage::u\>/
+	syn match CTagsMember /\<tmrTimerQueueMessage::xMessageID\>/
+	syn match CTagsUnion /\<tmrTimerQueueMessage::__anon7341ce9a010a\>/
+endif
+" Matches for file MPU9250.cpp:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "MPU9250.cpp") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable error DeviceId Command
+	
+endif
+" Matches for file CubeMX_Middlewares\\event_groups.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/event_groups.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable pxList uxBitsToSet pxEventBits uxReturn uxSavedInterruptStatus xMatchFound uxOriginalBitValue xReturn uxCurrentEventBits pxListEnd xTimeoutOccurred xWaitConditionMet uxBitsToWaitFor xAlreadyYielded pxListItem pxTasksWaitingForBits uxBitsToClear uxBitsWaitedFor uxControlBits pxNext
+	syn keyword CTagsStructure xEventGroupDefinition
+	syn keyword CTagsMember uxEventGroupNumber xTasksWaitingForBits uxEventBits ucStaticallyAllocated
+	syn keyword CTagsFunction prvTestWaitCondition
+	syn keyword CTagsType EventGroup_t
+	syn keyword CTagsDefinedName eventUNBLOCKED_DUE_TO_BIT_SET eventCLEAR_EVENTS_ON_EXIT_BIT MPU_WRAPPERS_INCLUDED_FROM_API_FILE eventEVENT_BITS_CONTROL_BYTES eventWAIT_FOR_ALL_BITS
+	
+	syn match CTagsMember /\<xEventGroupDefinition::ucStaticallyAllocated\>/
+	syn match CTagsMember /\<xEventGroupDefinition::uxEventBits\>/
+	syn match CTagsMember /\<xEventGroupDefinition::uxEventGroupNumber\>/
+	syn match CTagsMember /\<xEventGroupDefinition::xTasksWaitingForBits\>/
+endif
+" Matches for file adc.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "adc.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable GPIO_InitStruct sConfig sConfigInjected
+	
+endif
+" Matches for file gpio.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "gpio.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable GPIO_InitStruct
+	
+endif
+" Matches for file i2c.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "i2c.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable GPIO_InitStruct
+	
+endif
+" Matches for file spi.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "spi.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable GPIO_InitStruct
+	
+endif
+" Matches for file tim.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "tim.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable sMasterConfig GPIO_InitStruct sConfigIC sClockSourceConfig sConfigOC
+	
+endif
+" Matches for file usart.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "usart.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable GPIO_InitStruct
+	
+endif
+" Matches for file system_stm32f4xx.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "system_stm32f4xx.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable pllsource pllm timeout pllvco tmp tmpreg pllp index
+	syn keyword CTagsFunction SystemInit_ExtMemCtl
+	syn keyword CTagsDefinedName HSE_VALUE HSI_VALUE VECT_TAB_OFFSET
+	
+endif
+" Matches for file CubeMX_Middlewares\\croutine.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/croutine.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable pxCoRoutine pxCRCB xReturn pxUnblockedCRCB List_t xTimeToWake uxPriority pxTemp
+	syn keyword CTagsGlobalVariable xCoRoutineTickCount xDelayedCoRoutineList2 xPassedTicks xDelayedCoRoutineList1 pxDelayedCoRoutineList uxTopCoRoutineReadyPriority pxReadyCoRoutineLists xLastTickCount pxOverflowDelayedCoRoutineList xPendingReadyCoRoutineList
+	syn keyword CTagsFunction prvInitialiseCoRoutineLists prvCheckDelayedList prvCheckPendingReadyList
+	syn keyword CTagsDefinedName corINITIAL_STATE prvAddCoRoutineToReadyQueue
+	
+endif
+" Matches for file CubeMX_Middlewares\\queue.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/queue.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable uxReturn xReturn pxQueue pcOriginalReadPosition pucQueueStorage xEntryTimeSet pxMutex pxReturn xYieldRequired pxNewQueue pxQueueOrSemaphore uxMutexSize uxSavedInterruptStatus ux pcReturn xSize xTimeOut uxMutexLength xQueueSizeInBytes
+	syn keyword CTagsStructure QUEUE_REGISTRY_ITEM QueueDefinition
+	syn keyword CTagsMember pcQueueName pcWriteTo pcTail pcReadFrom ucStaticallyAllocated pxQueueSetContainer xTasksWaitingToReceive u uxItemSize ucQueueType uxLength cTxLock pcHead uxRecursiveCallCount xTasksWaitingToSend cRxLock uxMessagesWaiting uxQueueNumber xHandle
+	syn keyword CTagsUnion __anon951c56ab010a
+	syn keyword CTagsFunction prvCopyDataFromQueue prvCopyDataToQueue prvInitialiseMutex prvIsQueueEmpty prvNotifyQueueSetContainer prvInitialiseNewQueue prvUnlockQueue prvIsQueueFull
+	syn keyword CTagsType Queue_t xQUEUE QueueRegistryItem_t xQueueRegistryItem
+	syn keyword CTagsDefinedName queueSEMAPHORE_QUEUE_ITEM_LENGTH MPU_WRAPPERS_INCLUDED_FROM_API_FILE queueQUEUE_IS_MUTEX prvLockQueue pxMutexHolder queueUNLOCKED queueMUTEX_GIVE_BLOCK_TIME queueYIELD_IF_USING_PREEMPTION uxQueueType queueLOCKED_UNMODIFIED
+	
+	syn match CTagsMember /\<QUEUE_REGISTRY_ITEM::pcQueueName\>/
+	syn match CTagsMember /\<QUEUE_REGISTRY_ITEM::xHandle\>/
+	syn match CTagsMember /\<QueueDefinition::__anon951c56ab010a::pcReadFrom\>/
+	syn match CTagsMember /\<QueueDefinition::__anon951c56ab010a::uxRecursiveCallCount\>/
+	syn match CTagsMember /\<QueueDefinition::cRxLock\>/
+	syn match CTagsMember /\<QueueDefinition::cTxLock\>/
+	syn match CTagsMember /\<QueueDefinition::pcHead\>/
+	syn match CTagsMember /\<QueueDefinition::pcTail\>/
+	syn match CTagsMember /\<QueueDefinition::pcWriteTo\>/
+	syn match CTagsMember /\<QueueDefinition::pxQueueSetContainer\>/
+	syn match CTagsMember /\<QueueDefinition::u\>/
+	syn match CTagsMember /\<QueueDefinition::ucQueueType\>/
+	syn match CTagsMember /\<QueueDefinition::ucStaticallyAllocated\>/
+	syn match CTagsMember /\<QueueDefinition::uxItemSize\>/
+	syn match CTagsMember /\<QueueDefinition::uxLength\>/
+	syn match CTagsMember /\<QueueDefinition::uxMessagesWaiting\>/
+	syn match CTagsMember /\<QueueDefinition::uxQueueNumber\>/
+	syn match CTagsMember /\<QueueDefinition::xTasksWaitingToReceive\>/
+	syn match CTagsMember /\<QueueDefinition::xTasksWaitingToSend\>/
+	syn match CTagsUnion /\<QueueDefinition::__anon951c56ab010a\>/
+endif
+" Matches for file CubeMX_Middlewares\\tasks.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/tasks.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable uxCurrentBasePriority xRunPrivileged ulTotalTime pxTCB pvReturn xExpectedIdleTime uxQueue eReturn xSwitchRequired uxHigherPriorityReadyTasks pxIdleTaskStackBuffer ulReturn x pxNewTCB pxTaskStatusArray
+	syn keyword CTagsLocalVariable uxReturn xReturn uxTask ucOriginalNotifyState uxLeastSignificantBit uxPendedCounts xListIsEmpty ulStatsAsPercentage pxStateList ulCount xConstTickCount TaskHandle_t xTicks ulIdleTaskStackSize pxReturn xYieldRequired pucEndOfStack pxNextTCB pxUnblockedTCB cNextChar uxSavedInterruptState pxIdleTaskTCBBuffer xTCB uxSavedInterruptStatus cStatus uxNonApplicationTasks xItemValue xShouldDelay uxPriorityUsedOnEntry xAlreadyYielded uxArraySize xTimeToWake pxFirstTCB
+	syn keyword CTagsStructure tskTaskControlBlock
+	syn keyword CTagsMember pxStack xStateListItem pxTaskTag pxTopOfStack pxEndOfStack ucDelayAborted uxTCBNumber uxMutexesHeld ulRunTimeCounter ucStaticallyAllocated xMPUSettings ulNotifiedValue xEventListItem uxPriority uxBasePriority pvThreadLocalStoragePointers pcTaskName ucNotifyState uxCriticalNesting xNewLib_reent
+	syn keyword CTagsGlobalVariable ulTotalRunTime xTasksWaitingTermination uxDeletedTasksWaitingCleanUp xSchedulerRunning uxTaskNumber xPendingReadyList xSuspendedTaskList pxOverflowDelayedTaskList ulTaskSwitchedInTime xDelayedTaskList1 xNextTaskUnblockTime xIdleTaskHandle pxReadyTasksLists xNumOfOverflows uxSchedulerSuspended uxTopReadyPriority pxDelayedTaskList xYieldPending uxPendedTicks uxCurrentNumberOfTasks xTickCount xDelayedTaskList2
+	syn keyword CTagsFunction prvInitialiseTaskLists prvInitialiseNewTask prvTaskCheckFreeStackSpace portTASK_FUNCTION prvAddNewTaskToReadyList prvSearchForNameWithinSingleList prvTaskIsTaskSuspended prvWriteNameToBuffer prvCheckTasksWaitingTermination prvGetExpectedIdleTime prvListTasksWithinSingleList vApplicationGetIdleTaskMemory prvResetNextTaskUnblockTime vApplicationStackOverflowHook vApplicationTickHook portTASK_FUNCTION_PROTO prvDeleteTCB prvAddCurrentTaskToDelayedList
+	syn keyword CTagsType tskTCB TCB_t
+	syn keyword CTagsDefinedName tskSTATICALLY_ALLOCATED_STACK_ONLY tskDELETED_CHAR taskRESET_READY_PRIORITY taskSELECT_HIGHEST_PRIORITY_TASK
+	syn keyword CTagsDefinedName prvGetTCBFromHandle prvAddTaskToReadyList MPU_WRAPPERS_INCLUDED_FROM_API_FILE tskSTATICALLY_ALLOCATED_STACK_AND_TCB tskREADY_CHAR tskSUSPENDED_CHAR taskNOTIFICATION_RECEIVED portRESET_READY_PRIORITY taskWAITING_NOTIFICATION tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB tskSTATIC_AND_DYNAMIC_ALLOCATION_POSSIBLE tskSTACK_FILL_BYTE taskYIELD_IF_USING_PREEMPTION taskNOT_WAITING_NOTIFICATION taskSWITCH_DELAYED_LISTS tskBLOCKED_CHAR taskEVENT_LIST_ITEM_VALUE_IN_USE taskRECORD_READY_PRIORITY
+	
+	syn match CTagsMember /\<tskTaskControlBlock::pcTaskName\>/
+	syn match CTagsMember /\<tskTaskControlBlock::pvThreadLocalStoragePointers\>/
+	syn match CTagsMember /\<tskTaskControlBlock::pxEndOfStack\>/
+	syn match CTagsMember /\<tskTaskControlBlock::pxStack\>/
+	syn match CTagsMember /\<tskTaskControlBlock::pxTaskTag\>/
+	syn match CTagsMember /\<tskTaskControlBlock::pxTopOfStack\>/
+	syn match CTagsMember /\<tskTaskControlBlock::ucDelayAborted\>/
+	syn match CTagsMember /\<tskTaskControlBlock::ucNotifyState\>/
+	syn match CTagsMember /\<tskTaskControlBlock::ucStaticallyAllocated\>/
+	syn match CTagsMember /\<tskTaskControlBlock::ulNotifiedValue\>/
+	syn match CTagsMember /\<tskTaskControlBlock::ulRunTimeCounter\>/
+	syn match CTagsMember /\<tskTaskControlBlock::uxBasePriority\>/
+	syn match CTagsMember /\<tskTaskControlBlock::uxCriticalNesting\>/
+	syn match CTagsMember /\<tskTaskControlBlock::uxMutexesHeld\>/
+	syn match CTagsMember /\<tskTaskControlBlock::uxPriority\>/
+	syn match CTagsMember /\<tskTaskControlBlock::uxTCBNumber\>/
+	syn match CTagsMember /\<tskTaskControlBlock::uxTaskNumber\>/
+	syn match CTagsMember /\<tskTaskControlBlock::xEventListItem\>/
+	syn match CTagsMember /\<tskTaskControlBlock::xMPUSettings\>/
+	syn match CTagsMember /\<tskTaskControlBlock::xNewLib_reent\>/
+	syn match CTagsMember /\<tskTaskControlBlock::xStateListItem\>/
+endif
+" Matches for file main.cpp:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "main.cpp") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable RCC_ClkInitStruct RCC_OscInitStruct
+	syn keyword CTagsFunction SystemClock_Config MX_FREERTOS_Init
+	
+endif
+" Matches for file CubeMX_Middlewares\\cmsis_os.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/cmsis_os.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable ThreadState ticks itemSize priority fpriority ulPreviousNotificationValue index i TaskFunction_t result ret sema dummy thePool p pool_def xHigherPriorityTaskWoken TickType_t taskWoken event
+	syn keyword CTagsStructure os_mailQ_cb os_pool_cb
+	syn keyword CTagsMember pool_sz item_sz queue_def markers handle currentIndex pool
+	syn keyword CTagsFunction osWait inHandlerMode makeCmsisPriority makeFreeRtosPriority xPortSysTickHandler osSignalClear osKernelInitialize
+	syn keyword CTagsType os_mailQ_cb_t os_pool_cb_t
+	syn keyword CTagsDefinedName __ASM __INLINE __STATIC_INLINE
+	
+	syn match CTagsMember /\<os_mailQ_cb::handle\>/
+	syn match CTagsMember /\<os_mailQ_cb::pool\>/
+	syn match CTagsMember /\<os_mailQ_cb::queue_def\>/
+	syn match CTagsMember /\<os_pool_cb::currentIndex\>/
+	syn match CTagsMember /\<os_pool_cb::item_sz\>/
+	syn match CTagsMember /\<os_pool_cb::markers\>/
+	syn match CTagsMember /\<os_pool_cb::pool\>/
+	syn match CTagsMember /\<os_pool_cb::pool_sz\>/
+endif
+" Matches for file stm32f4xx_hal_timebase_tim.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "stm32f4xx_hal_timebase_tim.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable clkconfig pFLatency uwPrescalerValue uwTimclock
+	
+endif
+" Matches for file CubeMX_Middlewares\\port.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/port.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable ulOriginalPriority xModifiableIdleTime ulCurrentInterrupt pucFirstUserPriorityRegister ulSysTickCTRL ulCompleteTickPeriods ulCalculatedLoadValue ulCompletedSysTickDecrements ulReloadValue portNVIC_INT_CTRL_REG ucMaxPriorityValue ucCurrentPriority
+	syn keyword CTagsGlobalVariable ulMaxPRIGROUPValue ulTimerCountsForOneTick ulStoppedTimerCompensation xMaximumPossibleSuppressedTicks ucMaxSysCallPriority uxCriticalNesting
+	syn keyword CTagsConstant pcInterruptPriorityRegisters
+	syn keyword CTagsFunction vPortEnableVFP xPortPendSVHandler prvPortStartFirstTask vPortSetupTimerInterrupt xPortSysTickHandler vPortSVCHandler prvTaskExitError
+	syn keyword CTagsDefinedName portMAX_8_BIT_VALUE portMAX_24_BIT_NUMBER portPRIGROUP_SHIFT portTOP_BIT_OF_BYTE portSTART_ADDRESS_MASK portFPCCR portNVIC_PENDSV_PRI portINITIAL_EXEC_RETURN portMISSED_COUNTS_FACTOR portCPUID portVECTACTIVE_MASK portNVIC_SYSTICK_CURRENT_VALUE_REG portNVIC_SYSTICK_INT_BIT portNVIC_SYSPRI2_REG
+	syn keyword CTagsDefinedName portCORTEX_M7_r0p1_ID portCORTEX_M7_r0p0_ID portNVIC_SYSTICK_ENABLE_BIT portNVIC_SYSTICK_LOAD_REG portNVIC_SYSTICK_CLK_BIT portPRIORITY_GROUP_MASK portTASK_RETURN_ADDRESS portNVIC_PEND_SYSTICK_CLEAR_BIT portMAX_PRIGROUP_BITS configSYSTICK_CLOCK_HZ portAIRCR_REG portNVIC_SYSTICK_COUNT_FLAG_BIT portNVIC_SYSTICK_PRI portFIRST_USER_INTERRUPT_NUMBER portNVIC_IP_REGISTERS_OFFSET_16 portNVIC_SYSTICK_CTRL_REG portASPEN_AND_LSPEN_BITS portINITIAL_XPSR portNVIC_PENDSVCLEAR_BIT
+	
+endif
+" Matches for file CubeMX_Middlewares\\list.c:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "CubeMX_Middlewares/list.c") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsLocalVariable pxList xValueOfInsertion pxIndex pxIterator
+	
+endif
