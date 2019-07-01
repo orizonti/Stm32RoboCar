@@ -10,3 +10,11 @@ tags
 
 tags
 
+
+*.py
+
+*.temp
+
+*.taghl
+
+\.mxproject

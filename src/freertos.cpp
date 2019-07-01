@@ -49,6 +49,10 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+#include "FreeRTOS.h"
+#include "task.h"
+#include "main.h"
+#include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
@@ -62,10 +66,6 @@
 #include "cstdlib"
 /* USER CODE END Includes */
 
-#include "FreeRTOS.h"
-#include "task.h"
-#include "main.h"
-#include "cmsis_os.h"
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 //   uint8_t Data[12];
@@ -140,22 +140,22 @@ void SetCommand(int in1,int in2,int in3,int in4,STEP_COMMAND* COMMAND)
 
  
 
-  //osPoolDef(AccelDataPool, 20, AccelerometerDataStruct);                    // Define memory pool
+  osPoolDef(AccelDataPool, 8, AccelerometerDataStruct);                    // Define memory pool
   //#define osMessageQDef(name, queue_sz, type)   
 
   //QUEUES TO CONTROL MOTORS
-  osMessageQDef(StepMotorCommandQueue, 8, StepMotorControlStruct);
-  osMessageQDef(DCMotorCommandQueue, 8, DC_MotorControlStruct);
+  //osMessageQDef(StepMotorCommandQueue, 8, StepMotorControlStruct);
+  //osMessageQDef(DCMotorCommandQueue, 8, DC_MotorControlStruct);
 
 	osMessageQId DCMotorCommandQueueHandle;  //HANDLES TO INTERRACT TO QUEUES
 	osMessageQId StepMotorCommandQueueHandle;
 
   //QUEUES TO SEND BLOCKS STATE
   osMessageQDef(AccelStateQueue, 8, AccelerometerDataStruct);
-  osMessageQDef(StepMotorStateQueue, 8, StepMotorControlStruct);
-  osMessageQDef(DCMotorStateQueue, 8, DC_MotorControlStruct);
-  osMessageQDef(RangersStateQueue, 8, RangeControlStruct);
-  osMessageQDef(BatteryStateQueue, 8, BatteryControlStruct);
+  //osMessageQDef(StepMotorStateQueue, 8, StepMotorControlStruct);
+  //osMessageQDef(DCMotorStateQueue, 8, DC_MotorControlStruct);
+  //osMessageQDef(RangersStateQueue, 8, RangeControlStruct);
+  //osMessageQDef(BatteryStateQueue, 8, BatteryControlStruct);
 
 	osMessageQId DCMotorStateQueueHandle;  //HANDLES TO INTERRACT TO QUEUES
 	osMessageQId StepMotorStateQueueHandle;
@@ -165,13 +165,13 @@ void SetCommand(int in1,int in2,int in3,int in4,STEP_COMMAND* COMMAND)
 
 osPoolId  AccelDataPoolHandle;  // MEMORY POOL ID FOR QUEUES, IS'T USED YET
 
+
+/* USER CODE END Variables */
 osThreadId SensorMonitorinHandle;
 osThreadId Uart_Control_TaHandle;
 osThreadId DC_Motor_ContHandle;
 osThreadId StepMotor_ConHandle;
-
-
-/* USER CODE END Variables */
+osMessageQId StepCommandQueueHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -184,6 +184,15 @@ void StepMotorFunc(void const * argument);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 /* USER CODE END FunctionPrototypes */
 
+void SensorMonitorFunction(void const * argument);
+void UARTTransferFunction(void const * argument);
+void DC_Motor_Function(void const * argument);
+void StepMotorFunc(void const * argument);
+
+void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/* GetIdleTaskMemory prototype (linked to static allocation support) */
+/* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
   * @brief  FreeRTOS initialization
@@ -193,19 +202,6 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
   /* definition and creation of SensorMonitorin */
-  osThreadDef(SensorMonitorin, SensorMonitorFunction, osPriorityNormal, 0, 512);
-  SensorMonitorinHandle = osThreadCreate(osThread(SensorMonitorin), NULL);
-
-  /* definition and creation of Uart_Control_Ta */
-  osThreadDef(Uart_Control_Ta, UARTTransferFunction, osPriorityIdle, 0, 512);
-  Uart_Control_TaHandle = osThreadCreate(osThread(Uart_Control_Ta), NULL);
-
-  //osThreadDef(DC_Motor_Cont, DC_Motor_Function, osPriorityIdle, 0, 256);
-  //DC_Motor_ContHandle = osThreadCreate(osThread(DC_Motor_Cont), NULL);
-
-  ///* definition and creation of StepMotor_Con */
-  //osThreadDef(StepMotor_Con, StepMotorFunc, osPriorityIdle, 0, 256);
-  //StepMotor_ConHandle = osThreadCreate(osThread(StepMotor_Con), NULL);
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -220,31 +216,46 @@ void MX_FREERTOS_Init(void) {
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
-  /* Create the thread(s) */
+  /* Create the queue(s) */
+  /* definition and creation of StepCommandQueue */
+  osMessageQDef(StepCommandQueue, 16, uint16_t);
+  StepCommandQueueHandle = osMessageCreate(osMessageQ(StepCommandQueue), NULL);
 
-  /* definition and creation of DC_Motor_Cont */
+  AccelStateQueueHandle = osMessageCreate(osMessageQ(AccelStateQueue), NULL);
+  /* USER CODE BEGIN RTOS_QUEUES */
+  //STATE FROM MC DATA QUEUES
+  AccelDataPoolHandle = osPoolCreate(osPool(AccelDataPool));                 // create memory pool
+ // StepMotorStateQueueHandle = osMessageCreate(osMessageQ(StepMotorStateQueue), NULL);
+ // DCMotorStateQueueHandle = osMessageCreate(osMessageQ(DCMotorStateQueue), NULL);
+ // RangersStateQueueHandle = osMessageCreate(osMessageQ(RangersStateQueue), NULL);
+ // BatteryStateQueueHandle = osMessageCreate(osMessageQ(BatteryStateQueue), NULL);
+
+  //COMMAND FROM USER QUEUES
+  //StepMotorCommandQueueHandle = osMessageCreate(osMessageQ(StepMotorCommandQueue), NULL);
+  //DCMotorCommandQueueHandle = osMessageCreate(osMessageQ(DCMotorCommandQueue), NULL);
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* definition and creation of SensorMonitorin */
+  osThreadDef(SensorMonitorin, SensorMonitorFunction, osPriorityNormal, 0, 256);
+  SensorMonitorinHandle = osThreadCreate(osThread(SensorMonitorin), NULL);
+
+  /* definition and creation of Uart_Control_Ta */
+  osThreadDef(Uart_Control_Ta, UARTTransferFunction, osPriorityNormal, 0, 512);
+  Uart_Control_TaHandle = osThreadCreate(osThread(Uart_Control_Ta), NULL);
+
+  ///* definition and creation of DC_Motor_Cont */
+  //osThreadDef(DC_Motor_Cont, DC_Motor_Function, osPriorityIdle, 0, 128);
+  //DC_Motor_ContHandle = osThreadCreate(osThread(DC_Motor_Cont), NULL);
+
+  ///* definition and creation of StepMotor_Con */
+  //osThreadDef(StepMotor_Con, StepMotorFunc, osPriorityIdle, 0, 128);
+  //StepMotor_ConHandle = osThreadCreate(osThread(StepMotor_Con), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
-  /* Create the queue(s) */
-  /* definition and creation of StepCommandQueue */
-
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  //STATE FROM MC DATA QUEUES
-  //AccelDataPoolHandle = osPoolCreate(osPool(AccelDataPool));                 // create memory pool
-  AccelStateQueueHandle = osMessageCreate(osMessageQ(AccelStateQueue), NULL);
-  StepMotorStateQueueHandle = osMessageCreate(osMessageQ(StepMotorStateQueue), NULL);
-  DCMotorStateQueueHandle = osMessageCreate(osMessageQ(DCMotorStateQueue), NULL);
-  RangersStateQueueHandle = osMessageCreate(osMessageQ(RangersStateQueue), NULL);
-  BatteryStateQueueHandle = osMessageCreate(osMessageQ(BatteryStateQueue), NULL);
-
-  //COMMAND FROM USER QUEUES
-  StepMotorCommandQueueHandle = osMessageCreate(osMessageQ(StepMotorCommandQueue), NULL);
-  DCMotorCommandQueueHandle = osMessageCreate(osMessageQ(DCMotorCommandQueue), NULL);
-  /* USER CODE END RTOS_QUEUES */
 }
 
 /* USER CODE BEGIN Header_SensorMonitorFunction */
@@ -256,11 +267,15 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_SensorMonitorFunction */
 void SensorMonitorFunction(void const * argument)
 {
+
   /* USER CODE BEGIN SensorMonitorFunction */
 
    AccelData = new AccelDataStruct;
    GyroData =  new GyroDataStruct;
-      AccelerometerDataStruct* AccelDataMessage = new AccelerometerDataStruct;
+      //AccelerometerDataStruct* AccelDataMessage = new AccelerometerDataStruct;
+      AccelerometerDataStruct* AccelDataMessage;
+      AccelDataMessage = (AccelerometerDataStruct*)osPoolAlloc(AccelDataPoolHandle); 
+
 
       ReadDeviceID();
       osDelay(300);
@@ -279,7 +294,7 @@ void SensorMonitorFunction(void const * argument)
       AccelDataMessage->HEADER.HEADER1 = 0xF1;
       AccelDataMessage->HEADER.HEADER2 = 0xD2;
       AccelDataMessage->HEADER.SIZE_UNIT = 6+12;
-        HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
+        //HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
  //---------------------------------------------------------
  VoltageIndicator.ShowNextLevel();
  //---------------------------------------------------------
@@ -303,7 +318,16 @@ void UARTTransferFunction(void const * argument)
 {
   /* USER CODE BEGIN UARTTransferFunction */
   /* Infinite loop */
-  uint8_t SendData[20];
+  uint8_t SendData[40] = {0};
+  char SendString[40];
+  SendData[0] = 0x20;
+  SendData[1] = 0x21;
+  SendData[2] = 0x22;
+  SendData[3] = 0x23;
+  SendData[4] = 0x24;
+  SendData[5] = 0x25;
+  SendData[6] = 0x26;
+  SendData[7] = 0x27;
 
    AccelerometerDataStruct* Data;
   /* Infinite loop */
@@ -323,20 +347,22 @@ void UARTTransferFunction(void const * argument)
           {
             memcpy(SendData,(uint8_t*)Data,18);
 
-          sprintf(MESSAGE,"ACCEL_X = %d ACCEL_Y  = %d ACCEL_Z = %d \r\n",Data->AccelX,
-                                                                        Data->AccelY,
-                                                                        Data->AccelZ);
+          //sprintf(MESSAGE,"ACCEL_X = %d ACCEL_Y  = %d ACCEL_Z = %d \r\n",Data->AccelX,
+          //                                                              Data->AccelY,
+          //                                                              Data->AccelZ);
 
-          HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
+          //HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
+          //osDelay(10);
+
+          //sprintf(SendString,"HEADER - %02X SIZE - %d\r\n",Data->HEADER.HEADER1,Data->HEADER.SIZE_UNIT);
+          //HAL_UART_Transmit_IT(&huart1,(uint8_t*)(SendString),strlen(SendString));
+          //osDelay(10);
+
+          HAL_UART_Transmit_IT(&huart1,(uint8_t*)SendData,Data->HEADER.SIZE_UNIT);
           osDelay(10);
-
-          sprintf(MESSAGE,"HEADER - %02X SIZE - %d\r\n",Data->HEADER.HEADER1,Data->HEADER.SIZE_UNIT);
-          HAL_UART_Transmit_IT(&huart1,(uint8_t*)(MESSAGE),strlen(MESSAGE));
-          osDelay(10);
-
-          //HAL_UART_Transmit_IT(&huart1,SendData,18);
           }
-          //osPoolFree(AccelDataPoolHandle, Data);                  // free memory allocated for message
+
+          osPoolFree(AccelDataPoolHandle, Data);                  // free memory allocated for message
       }
 
     //          event = osMessageGet(DCMotorStateQueueHandle,0);
@@ -436,7 +462,6 @@ void UARTTransferFunction(void const * argument)
    //  }
   //=========================================================================================
   /* USER CODE END UARTTransferFunction */
-
 }
 
 /* USER CODE BEGIN Header_DC_Motor_Function */
